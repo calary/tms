@@ -1,0 +1,50 @@
+:focus {
+	outline: none;
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.4;
+  height: 100%;
+}
+body {
+	font-size: 1.6rem;
+	height: 100%;
+}
+app {
+	display: block;
+	height: 100%;
+	overflow: hidden;
+}
+.app-main {
+	height: 100%;
+	overflow: hidden;
+}
+.app-main .page-header {
+	font-size: 20px;
+	margin: 0 -15px;
+	padding: 0 15px;
+	height: 48px;
+	line-height: 48px;
+	border-bottom-color: #ddd;
+}
+.app-main-nav {
+	padding-right: 0;
+	background-color: #eee;
+	text-align: right;
+	height: 100%;
+}
+.app-main-nav .page-header {
+	margin: 0;
+	border-bottom-color: #ccc;
+}
+.app-main-nav .nav {
+	margin-top: 20px;
+}
+.app-main-nav .nav-pills > li > a {
+	color: #000;
+}
+.app-main-nav .nav-pills > li.active > a {
+	color: #000;
+	background-color: #fff;
+}

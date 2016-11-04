@@ -1,0 +1,23 @@
+<div class="modal-header bg-primary">
+	<button type="button" class="close" ng-click="$ctrl.cancel();"><span>&times;</span></button>
+    <h4 class="modal-title">选择时间</h4>
+</div>
+<div class="modal-body">
+  <div uib-datepicker 
+    ng-model="$ctrl.date" 
+    datepicker-options="$ctrl.options"></div>
+  <div uib-timepicker 
+    ng-model="$ctrl.date"
+    readonly-input="true"
+    show-meridian="false"
+    show-seconds="true"></div>
+  <div>当前时间{{ $ctrl.date | date:'yyyy-MM-dd HH:mm:ss' }}</div>
+  <div>最小日期{{ $ctrl.options.minDate | date:'yyyy-MM-dd HH:mm:ss' }}</div>
+  <div>最大日期{{ $ctrl.options.maxDate | date:'yyyy-MM-dd HH:mm:ss' }}</div>
+  <div>最小时间{{ $ctrl.minTime | date:'yyyy-MM-dd HH:mm:ss' }}</div>
+  <div>最大时间{{ $ctrl.maxTime | date:'yyyy-MM-dd HH:mm:ss' }}</div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" ng-click="$ctrl.ok();">确定</button>
+  <button class="btn btn-default" type="button" ng-click="$ctrl.cancel();">取消</button>
+</div>

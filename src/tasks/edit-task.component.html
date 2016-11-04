@@ -1,0 +1,15 @@
+<form ng-submit="$ctrl.onSubmit()" name="$ctrl.form" novalidate>
+  <formly-form model="$ctrl.model" fields="$ctrl.fields" form="$ctrl.form">
+    <button type="submit" class="btn btn-primary submit-button" ng-disabled="$ctrl.form.$invalid">Submit</button>
+    <button type="button" class="btn btn-default" ng-click="$ctrl.options.resetModel()">Reset</button>
+  </formly-form>
+</form>
+<h1>asdfasdf</h1>
+<button class="btn btn-primary" ng-click="$ctrl.alert()">打开</button>
+  <div uib-datepicker ng-model="$ctrl.selDate" datepicker-options="$ctrl.options" class="well well-sm"></div>
+  <select class="form-control"  
+    ng-model="$ctrl.selHour"
+    ng-options="i for i in $ctrl.optionsHour"></select>
+  <div>{{$ctrl.selDate}}</div>
+  <div>{{$ctrl.selHour}}</div>
+  <div uib-timepicker ng-model="$ctrl.selDate" show-meridian="false" show-seconds="true"></div>

@@ -1,0 +1,23 @@
+.datetime-modal .modal-dialog {
+  width: 284px;
+}
+
+.datetime-modal .row {
+  margin: 0;
+}
+.datetime-modal .col-xs-2 {
+  margin: 0;
+  padding: 0;
+  line-height: 36px;
+  text-align: center;
+}
+.datetime-modal .form-control {
+  padding: 6px 0;
+}
+
+.datetime-modal .uib-datepicker table {
+	margin: 0 auto;
+}
+.datetime-modal .uib-timepicker {
+  margin: 0 auto;
+}

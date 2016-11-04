@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>TMS-任务管理</title>
+<link rel="stylesheet" href="libs/bootstrap.css">
+<link rel="stylesheet" href="libs/ui-grid.css">
+</head>
+<body>
+<h1>bababa</h1>
+<!-- <div ui-view="container"></div> -->
+<a ui-sref="hello" ui-sref-active="active">Hello</a>
+<a ui-sref="about" ui-sref-active="active">About</a>
+<ui-view></ui-view>
+<script src="libs/angular.js"></script>
+<script src="libs/angular-animate.js"></script>
+<script src="libs/angular-sanitize.js"></script>
+<script src="libs/angular-ui-router.js"></script>
+<script src="libs/ui-bootstrap-tpls.js"></script>
+<script src="libs/ui-grid.js"></script>
+<script>
+var myApp = angular.module('app', ['ui.router']);
+
+myApp.config(function($stateProvider) {
+  var helloState = {
+    name: 'hello',
+    url: '/hello',
+    template: '<h3>hello world!</h3>'
+  }
+
+  var aboutState = {
+    name: 'about',
+    url: '/about',
+    template: '<h3>Its the UI-Router hello world app!</h3>'
+  }
+
+  $stateProvider.state(helloState);
+  $stateProvider.state(aboutState);
+});
+
+
+
+
+</script>
+</body>
+</html>
