@@ -18,6 +18,32 @@
 .datetime-modal .uib-datepicker table {
 	margin: 0 auto;
 }
+/* timePicker样式 */
 .datetime-modal .uib-timepicker {
-  margin: 0 auto;
+  margin-top: 10px;
+}
+.datetime-modal .uib-time input {
+  width: 40px;
+  height: 38px;
+  background-color: #fff;
+}
+.datetime-modal .uib-time-name {
+  padding: 0 5px;
+}
+
+.datetime-modal .uib-timepicker .btn {
+  padding: 0px 1px;
+  background-color: #eee;
+  font-size: 12px;;
+  border: 1px solid #ccc;
+}
+
+.datetime-modal .uib-increment .btn {
+  position: relative;
+  top: 2px;
+}
+
+.datetime-modal .uib-decrement .btn {
+  position: relative;
+  top: -2px;
 }

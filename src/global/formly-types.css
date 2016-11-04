@@ -1,0 +1,14 @@
+.formly-time-range {
+
+}
+.formly-time-range .col-sm-5 {
+  width: 45%;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap; 
+}
+.formly-time-range .col-sm-2 {
+  width: 10%;
+  padding: 0;
+  text-align: center;
+}

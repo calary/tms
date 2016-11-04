@@ -10,12 +10,13 @@
     ng-model="$ctrl.date"
     readonly-input="true"
     show-meridian="false"
+    template-url="global/datetime-modal.timepicker.html"
     show-seconds="true"></div>
-  <div>当前时间{{ $ctrl.date | date:'yyyy-MM-dd HH:mm:ss' }}</div>
+<!--   <div>当前时间{{ $ctrl.date | date:'yyyy-MM-dd HH:mm:ss' }}</div>
   <div>最小日期{{ $ctrl.options.minDate | date:'yyyy-MM-dd HH:mm:ss' }}</div>
   <div>最大日期{{ $ctrl.options.maxDate | date:'yyyy-MM-dd HH:mm:ss' }}</div>
   <div>最小时间{{ $ctrl.minTime | date:'yyyy-MM-dd HH:mm:ss' }}</div>
-  <div>最大时间{{ $ctrl.maxTime | date:'yyyy-MM-dd HH:mm:ss' }}</div>
+  <div>最大时间{{ $ctrl.maxTime | date:'yyyy-MM-dd HH:mm:ss' }}</div> -->
 </div>
 <div class="modal-footer">
   <button class="btn btn-primary" type="button" ng-click="$ctrl.ok();">确定</button>

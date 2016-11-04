@@ -9,6 +9,6 @@ module.exports = {
     app: appComponent,
   },
   states: [states.appState],
-  configBlocks: [],
-  runBlocks: [configs.runFormlyConfig]
+  configBlocks: [configs.otherwiseConfigBlock],
+  runBlocks: []
 };
