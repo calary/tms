@@ -51,3 +51,39 @@ app {
 	color: #000;
 	background-color: #fff;
 }
+.app-ui-view {
+	display: block;
+	padding-top: 15px;
+}
+
+
+
+.hr {
+	border-bottom: 1px solid #ddd;
+}
+.bg-default {
+	background-color: #eee;
+}
+.modal-300 {
+	width: 300px;
+}
+.modal-400 {
+	width: 400px;
+}
+.modal-500 {
+	width: 500px;
+}
+.modal-600 {
+	width: 600px;
+}
+.modal-700 {
+	width: 700px;
+}
+
+/* 弹窗下的横版表格，修改尺寸*/
+.modal form .form-group .col-sm-4 {
+	width: 40%;
+}
+.modal form .form-group .col-sm-8 {
+	width: 60%;
+}

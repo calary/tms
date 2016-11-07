@@ -26,3 +26,10 @@ exports.newRuleState = {
   title: '新建规则组',
   component: 'newRules'
 };
+exports.importRuleState = {
+  parent: 'app',
+  name: 'importRules',
+  url: '/rule/import',
+  title: '导入规则组',
+  component: 'importRules'
+};

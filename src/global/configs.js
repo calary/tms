@@ -22,7 +22,8 @@ exports.runFormlyConfig = ['formlyConfig', function(formlyConfig){
     name: 'horizontalBootstrapLabel',
     template: [
       '<label for="{{::id}}" class="col-sm-4 control-label">',
-        '{{to.label}} {{to.required ? "*" : ""}}',
+        // '{{to.label}} {{to.required ? "*" : ""}}',
+        '{{to.label}}',
       '</label>',
       '<div class="col-sm-8">',
         '<formly-transclude></formly-transclude>',

@@ -47,3 +47,8 @@
   position: relative;
   top: -2px;
 }
+
+
+.uib-daypicker .btn-info .text-info {
+  color: yellow;
+}

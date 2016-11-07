@@ -1,0 +1,68 @@
+controller.$inject = ['$scope'];
+function controller($scope){
+
+  var testData = [
+    {
+      "id": 1,
+      "label":"Option 1"
+    },
+    {
+      "id": 2,
+      "label":"Option 2"
+    },
+    {
+      "id": 3,
+      "label":"Option 3"
+    }
+  ];
+
+  var modulesOptions = [
+    { id: 1, label: '页面'},
+    { id: 1, label: '点击'},
+    { id: 1, label: '订单'},
+    { id: 1, label: '购物车'},
+    { id: 1, label: '会员'},
+    { id: 1, label: '微信'},
+    { id: 1, label: '会员积分'},
+    { id: 1, label: '搜索'},
+    { id: 1, label: '活动'},
+    { id: 1, label: '优惠卷'},
+    { id: 1, label: '中奖'},
+    { id: 1, label: '答题'}
+  ];
+  
+  this.options = {};
+
+  this.fields = [{
+    key: 'singleRules',
+    type: 'select2',
+    templateOptions: {
+      label: '选择标签规则组',
+      valueProp: 'id',
+      labelProp: 'label',
+      options: testData,
+      required: true
+    }
+  }, {
+    key: 'singleModule',
+    type: 'select2',
+    templateOptions: {
+      label: '选择网站模块',
+      valueProp: 'id',
+      labelProp: 'label',
+      options: modulesOptions,
+      required: true
+    }
+  }];
+
+}
+
+module.exports = {
+  template: require('./import-rules-modal.component.html'),
+  controller: controller,
+  bindings: {
+    resolve: '<',
+    close: '&',
+    dismiss: '&'
+  }
+};
