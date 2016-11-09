@@ -9,12 +9,11 @@ function controller($uibModal){
     var modalInstance = $uibModal.open({
       size: '400',
       component: 'importRulesModal',
-      // windowClass: 'datetime-modal',
-      resolve: {
-        // config: config || {}
-      }
     });
-    return modalInstance.result;
+    modalInstance.result.then(function(file){
+      console.log('xxxxxxxxxxxxxx');
+      console.log(file);
+    });
   }
 }
 

@@ -16,7 +16,18 @@ exports.cacheTemplateRunBlock = ['$templateCache', function($templateCache){
 // 模板配置
 
 exports.runFormlyConfig = ['formlyConfig', function(formlyConfig){
-
+  // bootstrap formly插件提供了
+  // wrapper: bootstrapLabel, has-error
+  // types: checkbox, multiCheckbox, input, radio, select, textarea
+  // bootstrap的form默认样式是一行label一行input
+  
+  // 新增基本type
+  // plainTimeRange
+  
+  // .form-horizontal样式
+  // 新增wrapper: horizontalBootstrapLabel
+  // 新增types: input2, select2,
+  
   // set templates here
   formlyConfig.setWrapper({
     name: 'horizontalBootstrapLabel',
@@ -72,11 +83,12 @@ exports.runFormlyConfig = ['formlyConfig', function(formlyConfig){
   });
 
   // 时间范围（min-max）未完成
+  // 不包含label
   formlyConfig.setType({
-    name: 'timeRange2',
+    name: 'plainTimeRange',
     template: [
       '<div class="formly-time-range">' +
-        '<div class="col-sm-5">' +
+        '<div class="formly-time-start">' +
           '<div class="input-group">' +
             '<p class="form-control">{{ model[options.key].min | date:"yyyy-MM-dd HH:mm:ss" }}</p>' +
             '<span class="input-group-btn">' +
@@ -86,8 +98,8 @@ exports.runFormlyConfig = ['formlyConfig', function(formlyConfig){
             '</span>' +
           '</div>' +
         '</div>' +
-        '<div class="col-sm-2" style="line-height: 34px;"> 至 </div>' +
-        '<div class="col-sm-5">' +
+        '<div class="formly-time-divider" style="line-height: 34px;"> 至 </div>' +
+        '<div class="formly-time-end">' +
           '<div class="input-group">' +
             '<p class="form-control">{{ model[options.key].max | date:"yyyy-MM-dd HH:mm:ss" }}</p>' +
             '<span class="input-group-btn">' +
@@ -99,7 +111,6 @@ exports.runFormlyConfig = ['formlyConfig', function(formlyConfig){
         '</div>' +
       '</div>'
     ].join(''),
-    wrapper: ['horizontalBootstrapLabel', 'bootstrapHasError'],
     // defaultOptions: {
     //   noFormControl: false
     // },
@@ -107,7 +118,7 @@ exports.runFormlyConfig = ['formlyConfig', function(formlyConfig){
       var model = $scope.model;
       var key = $scope.options.key;
       // console.log($scope.options);
-      console.log($scope);
+      // console.log($scope);
 
       $scope.selectMinTime = function(){
         var date = model[key] = model[key] || {};
@@ -140,6 +151,18 @@ exports.runFormlyConfig = ['formlyConfig', function(formlyConfig){
 
       checkValidity();
     }]
+  });
+  
+  formlyConfig.setType({
+    name: 'timeRange',
+    extends: 'plainTimeRange',
+    wrapper: ['bootstrapLabel', 'bootstrapHasError']
+  });
+
+  formlyConfig.setType({
+    name: 'timeRange2',
+    extends: 'plainTimeRange',
+    wrapper: ['horizontalBootstrapLabel', 'bootstrapHasError']
   });
 
   // 测试用

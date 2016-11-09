@@ -1,1 +1,54 @@
-<h1>任务列表</h1>
+<div class="rules-list">
+  <div ng-repeat="rules in $ctrl.list">
+    <div class="panel panel-default" ng-init="rules.isCollapsed=false">
+      <div class="panel-heading">
+        {{ rules.title }}
+        <button class="btn btn-link pull-right" style="margin-top:-5px;" ng-click="rules.isCollapsed = !rules.isCollapsed">
+        <span class="glyphicon" ng-class="{'glyphicon-menu-down': rules.isCollapsed, 'glyphicon-menu-up': !rules.isCollapsed}"></span>
+      </button>
+      </div>
+      <div uib-collapse="rules.isCollapsed">
+        <div class="panel-body">
+          <table class="table table-bordered table-hover">
+            <thead class="bg-default">
+              <tr>
+                <td>site ID/广告ID</td>
+                <td>规则组名称</td>
+                <td>规则组类型</td>
+                <td>创建时间</td>
+                <td>加入任务时间</td>
+                <td>&nbsp;</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>
+                  <a href="">复制规则组</a>
+                  <br>
+                  <a href="">导入规则组</a>
+                </td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>
+                  <a href="">复制规则组</a>
+                  <br>
+                  <a href="">导入规则组</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

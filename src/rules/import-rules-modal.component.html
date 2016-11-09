@@ -5,9 +5,6 @@
   </form>
 </div>
 <div class="modal-footer">
-  <button class="btn btn-primary" type="button">
-    确定
-    <input type="file">
-  </button>
+  <input-file class="btn btn-primary" on-change="$ctrl.selectFile(file)">选择文件</input-file>
   <button class="btn btn-default" type="button" ng-click="$ctrl.dismiss();">取消</button>
 </div>

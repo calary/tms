@@ -5,6 +5,7 @@ module.exports = angular.module('app', [
   'ui.bootstrap',
   'ui.select',
   'ui.router',
+  'uiSwitch',
   'formly', 
   'formlyBootstrap'
 ]);

@@ -1,5 +1,4 @@
 require('./datetime-modal.css');
-require('./')
 
 controller.$inject = ['$scope'];
 function controller($scope){

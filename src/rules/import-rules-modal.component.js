@@ -1,6 +1,8 @@
 controller.$inject = ['$scope'];
 function controller($scope){
 
+  var $ctrl = this;
+
   var testData = [
     {
       "id": 1,
@@ -31,16 +33,16 @@ function controller($scope){
     { id: 12, label: '答题'}
   ];
 
-  this.model = {
+  $ctrl.model = {
     selectRules: testData[0].id,
     selectModule: modulesOptions[0].id,
   };
   
-  this.options = {
+  $ctrl.options = {
 
   };
 
-  this.fields = [{
+  $ctrl.fields = [{
     key: 'selectRules',
     type: 'select2',
     templateOptions: {
@@ -62,8 +64,8 @@ function controller($scope){
     }
   }];
 
-  this.selectFile = function(){
-
+  $ctrl.selectFile = function(file){
+    $ctrl.close({$value: file});
   }
 
 }

@@ -1,1 +1,60 @@
-<h1>任务列表</h1>
+<div class="task-list">
+  <!-- 筛选 -->
+  <div class="well well-default">
+    <form class="form-inline" ng-submit="$ctrl.onSubmit()" name="$ctrl.form" novalidate>
+      <formly-form model="$ctrl.model" fields="$ctrl.fields" form="$ctrl.form" options="$ctrl.options">
+      </formly-form>
+      <button class="btn btn-primary">筛选</button>
+      <button class="btn btn-default" ng-click="$ctrl.options.resetModel()">重置</button>  
+    </form>
+  </div>
+  <div><a ui-href="newTask" class="btn btn-primary">新建任务</a></div>
+  <!-- 任务列表 -->
+  <table class="table table-bordered table-hover">
+    <thead class="bg-default">
+      <tr>
+        <td>site ID/广告ID</td>
+        <td>规则组名称</td>
+        <td>规则组类型</td>
+        <td>开始时间</td>
+        <td>结束时间</td>
+        <td>状态</td>
+        <td>任务进度</td>
+        <td>创建时间</td>
+        <td>操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>
+          <div>未开始</div>
+          <div>
+            执行中
+            <switch name="enabled" ng-model="enabled" class="green"></switch>
+          </div>
+          <div>已结束</div>
+        </td>
+        <td>
+          <div class="text-center">22%</div>
+          <uib-progressbar value="22"></uib-progressbar>
+        </td>
+        <td>1</td>
+        <td><a href="">编辑任务时间</a></td>
+      </tr>
+    </tbody>
+  </table> 
+  <div ng-init="bigTotalItems=175;bigCurrentPage=1;maxSize=3;"></div>
+  <ul uib-pagination 
+    total-items="bigTotalItems" 
+    ng-model="bigCurrentPage" 
+    max-size="maxSize" 
+    boundary-link-numbers="true" 
+    previous-text="上一页" next-text="下一页"
+  ></ul> 
+</div>
+
