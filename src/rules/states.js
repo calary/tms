@@ -5,13 +5,6 @@ exports.rulesListState = {
   title: '规则组列表',
   component: 'rulesList'
 };
-exports.viewRulesState = {
-  parent: 'app',
-  name: 'viewRules',
-  url: '/rules/:rulesId',
-  title: '规则组详情',
-  component: 'newRules'
-};
 exports.newRulesState = {
   parent: 'app',
   name: 'newRules',
@@ -19,12 +12,19 @@ exports.newRulesState = {
   title: '新建规则组',
   component: 'newRules'
 };
+exports.viewRulesState = {
+  parent: 'app',
+  name: 'viewRules',
+  url: '/rules/:rulesId',
+  title: '规则组详情',
+  component: 'newRules'
+};
 exports.newRuleState = {
   parent: 'app',
   name: 'newRule',
-  url: '/rule/new',
+  url: '/rules/:rulesId/rule/new',
   title: '新建规则组',
-  component: 'newRules'
+  component: 'newRule'
 };
 exports.importRuleState = {
   parent: 'app',

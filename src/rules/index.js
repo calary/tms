@@ -17,9 +17,9 @@ module.exports = {
   },
   states: [
     states.rulesListState,
-    states.viewRulesState,
     states.newRulesState,
     states.newRuleState,
+    states.viewRulesState,
     states.importRuleState,
   ]
 };

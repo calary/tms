@@ -1,1 +1,12 @@
-<h1>新建任务</h1>
+<div class="new-rules">
+  <form class="form-horizontal" ng-submit="$ctrl.onSubmit()" name="$ctrl.form" novalidate>
+    <formly-form model="$ctrl.model" fields="$ctrl.fields" form="$ctrl.form" options="$ctrl.options">
+    </formly-form>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-4">
+        <button type="submit" class="btn btn-primary" ng-disabled="$ctrl.form.$invalid">下一步</button>
+        创建规则组，去设置标签规则
+      </div>
+    </div>
+  </form>
+</div>
