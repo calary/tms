@@ -1,9 +1,9 @@
 require('./x-input-file.directive.css');
 
 function resetInput(input){
-  let form = document.createElement('form');
-  let div = document.createElement('div');
-  let parent = input.parentNode;
+  var form = document.createElement('form');
+  var div = document.createElement('div');
+  var parent = input.parentNode;
 
   parent.replaceChild(div, input);
   form.appendChild(input);

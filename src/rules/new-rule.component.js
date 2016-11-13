@@ -1,6 +1,37 @@
-controller.$inject = [];
-function controller(){
-  this.content = '编辑任务';
+require('./new-rule.css');
+
+controller.$inject = ['ruleTypes'];
+function controller(ruleTypes){
+  var $ctrl = this;
+  $ctrl.ruleTypes = ruleTypes;
+  // formly
+  $ctrl.fields = [];
+  $ctrl.formList = []
+  $ctrl.addSection = addSection;
+  $ctrl.removeSection = removeSection;
+
+  // 测试用fields
+  $ctrl.fields = [{
+    key: 'test',
+    type: 'input2',
+    templateOptions: {
+      label: 'site ID/广告ID',
+      required: true
+    }
+  }];
+
+  function addSection(){
+    $ctrl.formList.push({
+      options: {},
+      model: {},
+      fields: angular.copy($ctrl.fields)
+    });
+  }
+
+  function removeSection(index){
+    $ctrl.formList.splice(index, 1);
+  }
+
 }
 
 module.exports = {

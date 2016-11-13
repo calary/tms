@@ -2,6 +2,7 @@
 // https://ui-router.github.io/sample-app-ng1/
 
 var appModule = require('./app.module');
+var formlyModule = require('./formly'); // 自定义formly表单类型
 var globalModule = require('./global');
 var mainModule = require('./main');
 var tasksModule = require('./tasks');
@@ -11,6 +12,7 @@ var rulesModule = require('./rules');
 // key为注册名，value为注册时所需的配置对象
 var BLANK_MODULE = {
     states: [], 
+    constants: {}, 
     components: {}, 
     directives: {}, 
     services: {}, 
@@ -20,7 +22,7 @@ var BLANK_MODULE = {
     runBlocks: []
 };
 
-var subModules = [globalModule, mainModule, tasksModule, rulesModule]
+var subModules = [formlyModule, globalModule, mainModule, tasksModule, rulesModule]
 .map(function(module){
   // 保证每个模块都包含模块模板里的key
   return Object.assign({}, BLANK_MODULE, module);
@@ -33,6 +35,10 @@ subModules.forEach(function(module){
       return $stateProvider.state(state); 
     }); 
   }]);
+  // 注册常量
+  Object.keys(module.constants).forEach(function (name) {
+    return appModule.constant(name, module.constants[name]); 
+  });
   // 注册component
   Object.keys(module.components).forEach(function (name) {
     return appModule.component(name, module.components[name]); 

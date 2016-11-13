@@ -1,0 +1,23 @@
+<div class="formly-time-range">
+  <div class="formly-time-start">
+    <div class="input-group">
+      <p class="form-control">{{ model[options.key].min | date:"yyyy-MM-dd HH:mm:ss" }}</p>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="selectMinTime()">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </button>
+      </span>
+    </div>
+  </div>
+  <div class="formly-time-divider" style="line-height: 34px;"> 至 </div>
+  <div class="formly-time-end">
+    <div class="input-group">
+      <p class="form-control">{{ model[options.key].max | date:"yyyy-MM-dd HH:mm:ss" }}</p>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="selectMaxTime()">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </button>
+      </span>
+    </div>
+  </div>
+</div>

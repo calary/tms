@@ -1,6 +1,3 @@
-// 所有formly自定义类型的样式
-require('./formly-types.css');
-
 // ui-bootstrap支持自定义timepicker的template-url
 // 为此使用$templateCache服务实现模板的打包
 // 除此之外的component模块均使用require引入template。
@@ -12,9 +9,6 @@ exports.cacheTemplateRunBlock = ['$templateCache', function($templateCache){
     require('./datetime-modal.timepicker.html')
   ); 
 }];
-
-// 模板配置
-exports.runFormlyConfig = require('./formly').runFormlyConfig;
 
 
 // exports.runFormlyConfig = ['formlyConfig', function(formlyConfig){

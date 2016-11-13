@@ -22,7 +22,7 @@ exports.viewRulesState = {
 exports.newRuleState = {
   parent: 'app',
   name: 'newRule',
-  url: '/rules/:rulesId/rule/new',
+  url: '/rules/:rulesId/rule/:ruleType',
   title: '新建规则组',
   component: 'newRule'
 };

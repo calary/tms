@@ -1,0 +1,46 @@
+.formly-field {
+  position: relative;
+}
+.formly-field .validation {
+  position: absolute;
+  color: red;
+  top: 32px;
+  font-size: 12px;
+}
+.form-horizontal .validation {
+  left: 33.333333333%;
+  margin-left: 10px;
+}
+
+/* Inline Form */
+.form-inline .form-control {
+  min-width: 100px;
+}
+.form-inline .formly-field {
+  display: inline-block;
+}
+.form-inline .formly-time-range,
+.form-inline .formly-time-start,
+.form-inline .formly-time-divider,
+.form-inline .formly-time-end {
+  display: inline-block;
+}
+
+/* Time Range */
+.form-horizontal .formly-time-range {
+  overflow: hidden;
+}
+.form-horizontal .formly-time-start,
+.form-horizontal .formly-time-end {
+  float: left;
+  width: 45%;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap; 
+}
+.form-horizontal .formly-time-divider {
+  float: left;
+  width: 10%;
+  padding: 0;
+  text-align: center;
+}

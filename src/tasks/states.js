@@ -19,3 +19,10 @@ exports.editTaskState = {
   title: '编辑任务列表',
   component: 'editTask'
 };
+exports.testState = {
+  parent: 'app',
+  name: 'test',
+  url: '/test',
+  title: '测试',
+  component: 'test'
+};

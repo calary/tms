@@ -1,32 +1,20 @@
-controller.$inject = [];
-function controller(){
+controller.$inject = ['$state', 'rulesTypes', 'ruleTypes'];
+function controller($state, rulesTypes, ruleTypes){
   var $ctrl = this;
-
-  var testData = [
-    {
-      "id": 1,
-      "label":"Option 1"
-    },
-    {
-      "id": 2,
-      "label":"Option 2"
-    },
-    {
-      "id": 3,
-      "label":"Option 3"
-    }
-  ];
-
   $ctrl.options = {};
+  $ctrl.model = {
+    rulesType: rulesTypes[0].id
+  };
+
   $ctrl.fields = [
     {
-      key: 'singleOption',
+      key: 'rulesType',
       type: 'select2',
       templateOptions: {
-        label: '选择标签规则组',
+        label: '选择规则组类型',
         valueProp: 'id',
-        labelProp: 'label',
-        options: testData,
+        labelProp: 'title',
+        options: rulesTypes,
         required: true
       }
     },
@@ -46,6 +34,10 @@ function controller(){
       }
     }
   ];
+
+  $ctrl.go = function(){
+    $state.go('newRule', {rulesId: 'test', ruleType: ruleTypes[0].id});
+  };
 }
 
 module.exports = {
