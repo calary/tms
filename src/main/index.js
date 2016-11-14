@@ -21,6 +21,11 @@ module.exports = {
     app: appComponent,
   },
   states: [states.appState],
-  configBlocks: [configs.otherwiseConfigBlock],
-  runBlocks: []
+  configBlocks: [
+    configs.otherwiseConfigBlock, 
+    configs.httpConfigBlock
+  ],
+  runBlocks: [
+    configs.httpBackendRunBlock
+  ]
 };

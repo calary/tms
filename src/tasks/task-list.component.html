@@ -25,13 +25,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
+      <tr ng-repeat="item in $ctrl.list">
+        <td>{{ item.SiteID }}</td>
+        <td>{{ item.RuleGroupName }}</td>
+        <td>{{ item.RuleGroupType }}</td>
+        <td>{{ item.StartDate }}</td>
+        <td>{{ item.EndDate }}</td>
         <td>
+          <div>{{ item.Status }}</div>
           <div>未开始</div>
           <div>
             执行中

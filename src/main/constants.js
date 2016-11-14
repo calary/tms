@@ -22,11 +22,10 @@ exports.ruleTypes = [
 ];
 // 任务状态
 exports.taskStatus = [
-  { id: 1, title: '全部' },
-  { id: 2, title: '未开始' },
-  { id: 2, title: '执行中' },
-  { id: 3, title: '暂停中' },
-  { id: 4, title: '已结束' }
+  { id: 0, title: '未开始' },
+  { id: 1, title: '执行中' },
+  { id: 2, title: '暂停中' },
+  { id: 3, title: '已结束' }
 ];
 // 真假选择
 exports.boolOptions = [

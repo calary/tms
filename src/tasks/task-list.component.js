@@ -1,8 +1,10 @@
 require('./task-list.component.css');
 
-controller.$inject = [];
-function controller(){
+controller.$inject = ['tasksService'];
+function controller(tasksService){
   var $ctrl = this;
+  $ctrl.list = [];
+
   // formly配置 
   var testData = [
     {
@@ -74,6 +76,13 @@ function controller(){
     }
   ];
 
+  tasksService.getTasks().then(function(data){
+    console.log('aaaaaaaaaaaaaaaa');
+    console.log(data);
+    $ctrl.list = data && data.Data || [];
+  }, function(reason){
+    console.log(reason);
+  });
 }
 
 module.exports = {
