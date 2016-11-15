@@ -1,0 +1,6 @@
+<ui-select ng-model="model[options.key]" required="{{to.required}}" disabled="{{to.disabled}}" theme="bootstrap">
+  <ui-select-match placeholder="{{to.placeholder}}" allow-clear="true">{{$select.selected[to.labelProp]}}</ui-select-match>
+  <ui-select-choices repeat="{{to.ngOptions}}">
+    <div ng-bind-html="option[to.labelProp] | highlight: $select.search"></div>
+  </ui-select-choices>
+</ui-select>

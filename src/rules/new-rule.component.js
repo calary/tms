@@ -6,7 +6,7 @@ function controller(ruleTypes){
   $ctrl.ruleTypes = ruleTypes;
   // formly
   $ctrl.fields = [];
-  $ctrl.formList = []
+  $ctrl.formList = [];
   $ctrl.addSection = addSection;
   $ctrl.removeSection = removeSection;
 
@@ -18,7 +18,15 @@ function controller(ruleTypes){
       label: 'site ID/广告ID',
       required: true
     }
+  }, {
+    key: 'test2',
+    type: 'bindTag',
+    templateOptions: {
+      label: 'wawawa'
+    }
   }];
+
+  addSection();
 
   function addSection(){
     $ctrl.formList.push({

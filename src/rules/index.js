@@ -5,6 +5,7 @@ var viewRulesComponent = require('./view-rules.component');
 var importRulesComponent = require('./import-rules.component');
 var importRulesModalComponent = require('./import-rules-modal.component');
 var states = require('./states');
+var configs = require('./configs');
 
 module.exports = {
   components: {
@@ -21,5 +22,6 @@ module.exports = {
     states.newRuleState,
     states.viewRulesState,
     states.importRuleState,
-  ]
+  ],
+  runBlocks: [ configs.runFormlyConfig ]
 };

@@ -36,6 +36,23 @@ exports.runFormlyConfig = ['formlyConfig', 'formlyValidationMessages',
     return viewValue + ' is invalid';
   };
   formlyValidationMessages.addTemplateOptionValueMessage('minlength', 'minlength', '', 'is the minimum length', 'Too short');
+
+
+
+
+  // 测试类型
+  formlyConfig.setType({
+    name: 'multipleFields',
+    
+  });
+
+
+
+
+
+
+
+
 }];
 
 

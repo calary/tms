@@ -31,14 +31,14 @@ app {
   padding-right: 0;
   background-color: #eee;
   text-align: right;
-  min-height: 550px;
+  min-height: 555px;
 }
 .app-main-nav .page-header {
   margin: 0;
   border-bottom-color: #ccc;
 }
 .app-main-nav .nav {
-  
+  padding-top: 10px;
 }
 .app-main-nav .nav-pills > li > a {
   color: #000;

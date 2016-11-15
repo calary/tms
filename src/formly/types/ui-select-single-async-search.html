@@ -1,0 +1,7 @@
+<ui-select ng-model="model[options.key]" required="{{to.required}}" disabled="{{to.disabled}}" theme="bootstrap">
+  <ui-select-match placeholder="{{to.placeholder}}">{{$select.selected[to.labelProp]}}</ui-select-match>
+  <ui-select-choices repeat="{{to.ngOptions}}" refresh="to.refresh($select.search, options)" refresh-delay="{{to.refreshDelay}}">
+    <div ng-bind-html="option[to.labelProp] | highlight: $select.search"></div>
+    <div><small>{{option.geometry.location.lat}}, {{option.geometry.location.lng}}</small></div>
+  </ui-select-choices>
+</ui-select>

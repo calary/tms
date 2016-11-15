@@ -33,7 +33,6 @@ function controller($modalService, $state){
       {
         key: 'time',
         type: 'timeRange2',
-        optionsTypes: ['timeRange2'],
         templateOptions: {
           label: '设置任务周期',
           required: true
@@ -59,7 +58,6 @@ function controller($modalService, $state){
       {
         key: 'time',
         type: 'timeRange2',
-        optionsTypes: ['timeRange2'],
         templateOptions: {
           label: '设置任务周期',
           required: true
