@@ -1,15 +1,26 @@
-controller.$inject = [];
-function controller(){
+controller.$inject = ['rulesService'];
+function controller(rulesService){
   var $ctrl = this;
 
-
-  $ctrl.list = [
-    { title: '加入任务-未开启' },
-    { title: '加入任务-执行中' },
-    { title: '加入任务-暂停中' },
-    { title: '加入任务-已结束' },
-    { title: '未加入任务' }
+  $ctrl.data = [];
+  $ctrl.rulesTitles = [
+    { id: 0, title: '加入任务-未开启' },
+    { id: 1, title: '加入任务-执行中' },
+    { id: 2, title: '加入任务-暂停中' },
+    { id: 3, title: '加入任务-已结束' },
+    { id: 4, title: '未加入任务' }
   ];
+
+  $ctrl.rulesTitles.forEach(function(rules, index){
+    getRules(rules.id, index);
+  });
+
+  function getRules(status, index){
+    rulesService.getRules({ Status: status })
+    .then(function(data){
+      $ctrl.data[index] = data && data.Data || [];
+    });
+  }
 }
 
 module.exports = {

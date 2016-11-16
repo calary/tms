@@ -22,7 +22,7 @@ function controller($state, rulesTypes, ruleTypes){
       key: 'asdf',
       type: 'input2',
       templateOptions: {
-        label: 'site ID'
+        label: 'site ID（选填）',
       }
     },
     {

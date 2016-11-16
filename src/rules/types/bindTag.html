@@ -1,5 +1,7 @@
 <div>
   <div>备用空间-----------</div>
+  <formly-field options="searchOptions" model="hideModel">
+  </formly-field>
   <div class="form-group row">
     <label class="col-xs-3 control-label">关联标签</label>
     <div class="col-xs-9">
@@ -23,7 +25,7 @@
     <div class="col-xs-3">
       <formly-field class="no-padding"
                     options="itemOptions"
-                    model="model[options.key][$index].weight"
+                    model="model[options.key][$index]"
                     form="form">
       </formly-field>
     </div>

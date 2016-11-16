@@ -20,6 +20,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.24.1",
     "ng-annotate-loader": "^0.2.0",
+    "postcss-loader": "^1.1.1",
     "raw-loader": "^0.5.1",
     "style-loader": "^0.13.1",
     "ui-select": "^0.19.6",

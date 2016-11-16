@@ -1,12 +1,13 @@
-tasksService.$inject = ['$q', '$http'];
-function tasksService($q, $http){
+tasksService.$inject = ['$q', '$http', 'apiBaseUrl'];
+function tasksService($q, $http, apiBaseUrl){
   
   return {
     getTasks: getTasks
   };
 
-  function getTasks(){
-    return $http.get('/api/findtask', {params: { _mock_: true }});
+  function getTasks(params){
+    params = params || {};
+    return $http.get(apiBaseUrl + '/api/findtask', {params: params});
   }
 }
 

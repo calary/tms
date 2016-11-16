@@ -24,7 +24,7 @@ module.exports = {
     states.viewRulesState,
     states.importRuleState,
   ],
-  factories: {
+  factorids: {
     rulesService: services.rulesService
   },
   runBlocks: [ configs.runFormlyConfig ]

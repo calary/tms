@@ -3,7 +3,7 @@ require('./task-list.component.css');
 controller.$inject = ['tasksService', 'rulesTypes', 'taskStatus'];
 function controller(tasksService, rulesTypes, taskStatus){
   var $ctrl = this;
-  $ctrl.data = [];
+  $ctrl.list = [];
   $ctrl.filter = filter;
 
   // formly配置 
@@ -18,7 +18,7 @@ function controller(tasksService, rulesTypes, taskStatus){
         {
           key: 'siteid',
           type: 'input2',
-          className: 'col-sm-6 col-lg-3',
+          className: 'col-sm-6 col-md-3',
           templateOptions: {
             label: 'site ID/广告ID'
           }
@@ -26,7 +26,7 @@ function controller(tasksService, rulesTypes, taskStatus){
         {
           key: 'rulegroupname',
           type: 'input2',
-          className: 'col-sm-6 col-lg-3',
+          className: 'col-sm-6 col-md-3',
           templateOptions: {
             label: '规则组名称'
           }
@@ -34,7 +34,7 @@ function controller(tasksService, rulesTypes, taskStatus){
         {
           key: 'rulegrouptype',
           type: 'select2',
-          className: 'col-sm-6 col-lg-3',
+          className: 'col-sm-6 col-md-3',
           templateOptions: {
             label: '规则组类型',
             valueProp: 'id',
@@ -45,7 +45,7 @@ function controller(tasksService, rulesTypes, taskStatus){
         {
           key: 'status',
           type: 'select2',
-          className: 'col-sm-6 col-lg-3',
+          className: 'col-sm-6 col-md-3',
           templateOptions: {
             label: '任务状态',
             valueProp: 'id',
@@ -61,7 +61,7 @@ function controller(tasksService, rulesTypes, taskStatus){
         {
           key: 'timeOption',
           type: 'select',
-          className: 'col-sm-2',
+          className: 'col-sm-3',
           templateOptions: {
             label: '',
             valueProp: 'id',
@@ -75,7 +75,7 @@ function controller(tasksService, rulesTypes, taskStatus){
         {
           key: 'time',
           type: 'timeRange',
-          className: 'col-sm-8 col-md-6 pl30',
+          className: 'col-sm-9',
           templateOptions: {
             label: ''
           }
@@ -83,6 +83,52 @@ function controller(tasksService, rulesTypes, taskStatus){
       ]
     }
   ];
+
+  // ui-table配置
+  $ctrl.gridOptions = {
+    data: '$ctrl.list',
+    enableColumnMenus: false, // 隐藏列菜单
+    enableSorting: false, // 禁止排序
+    columnDefs: [
+      { field: 'SiteID', displayName: 'site ID/广告ID'},
+      { field: 'RuleGroupName', displayName: '规则组名称'},
+      { field: 'RuleGroupType', displayName: '规则组类型'},
+      { 
+        field: 'StartDate', displayName: '开始时间', 
+        cellFilter: 'date:"yyyy-MM-dd hh:mm:ss"'
+      },
+      { 
+        field: 'EndDate', displayName: '结束时间', 
+        cellFilter: 'date:"yyyy-MM-dd hh:mm:ss"'
+      },
+      { 
+        field: 'Status', displayName: '状态',
+        cellTemplate: 
+          '<div class="ui-grid-cell-contents">' +
+            '<div ng-switch="COL_FIELD">' +
+              '<div ng-switch-when="0">未开始</div>' + 
+              '<div ng-switch-when="1">执行中</div>' + 
+              '<div ng-switch-when="2">暂停中</div>' + 
+              '<div ng-switch-when="3">已结束</div>' + 
+              '<div ng-switch-when="4">未加入</div>' + 
+            '</div>' + 
+          '</div>'
+      },
+      // { name: 'progress', displayName: '任务进度'},
+      { 
+        field: 'CreateTime', displayName: '创建时间',
+        cellFilter: 'date:"yyyy-MM-dd hh:mm:ss"'
+      }/*,
+      { 
+        name: 'control', 
+        displayName: '操作',
+        cellTemplate: 
+          '<div class="ui-grid-cell-contents">' +
+            '<a ui-href="editTask({taskId: \'\'})">编辑任务时间</a>' + 
+          '</div>'
+      }*/
+    ]
+  };
 
   filter();
 
@@ -101,7 +147,7 @@ function controller(tasksService, rulesTypes, taskStatus){
     };
 
     tasksService.getTasks(params).then(function(data){
-      $ctrl.data = data && data.Data || [];
+      $ctrl.list = data && data.Data || [];
     }, function(reason){
       console.log(reason);
     });

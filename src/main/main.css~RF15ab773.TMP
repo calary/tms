@@ -63,9 +63,6 @@ app {
 .bg-default {
     background-color: #f5f5f5;
 }
-.padding {
-  padding: 10px;
-}
 .modal-300 {
     width: 300px;
 }
@@ -112,7 +109,7 @@ app {
 .ui-grid-viewport {
   width: 100% !important;
   height: auto !important;
-  min-height: 0 !important;
+  min-height: 30px !important;
   overflow: visible !important;
 }
 
@@ -124,10 +121,6 @@ app {
 
 .ui-grid-row, .ui-grid-cell {
   height: auto !important;
-}
-
-.ui-grid-cell {
-
 }
 
 .ui-grid-row div[role=row] {

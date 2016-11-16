@@ -10,6 +10,15 @@ module.exports = {
     $scope.copyItemOptions = copyItemOptions;
     $scope.search = search;
     $scope.selectTag = selectTag;
+    // 独立model
+    $scope.hideModel = {}; // 存放search
+    $scope.searchOptions = {
+      key: 'search',
+      type: 'input2',
+      templateOptions: {
+        label: '关联标签'
+      }
+    };
 
     var model = $scope.model;
     var key = $scope.options.key;
@@ -21,7 +30,7 @@ module.exports = {
     });
 
     function copyItemOptions() {
-      return { type: 'input' };
+      return { key: 'weight', type: 'input' };
     }
 
     function search(keyword, field){

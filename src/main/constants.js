@@ -1,10 +1,12 @@
 // 全局常量
+exports.apiBaseUrl = 'http://dm2log.arlakitchen.com:8089';
+
 // 规则组类型
 exports.rulesTypes = [
-  { id: 1, title: '网站' },
-  { id: 2, title: '广告' },
-  { id: 3, title: '呼叫中心' },
-  { id: 4, title: '社会化媒体' }
+  { id: '网站', title: '网站' },
+  { id: '广告', title: '广告' },
+  { id: '呼叫中心', title: '呼叫中心' },
+  { id: '社会化媒体', title: '社会化媒体' }
 ];
 // 规则类型
 exports.ruleTypes = [
@@ -25,7 +27,8 @@ exports.taskStatus = [
   { id: 0, title: '未开始' },
   { id: 1, title: '执行中' },
   { id: 2, title: '暂停中' },
-  { id: 3, title: '已结束' }
+  { id: 3, title: '已结束' },
+  { id: 4, title: '未加入' }
 ];
 // 真假选择
 exports.boolOptions = [

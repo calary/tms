@@ -1,5 +1,5 @@
 <div class="rules-list">
-  <div ng-repeat="rules in $ctrl.list">
+  <div ng-repeat="rules in $ctrl.rulesTitles">
     <div class="panel panel-default" ng-init="rules.isCollapsed=false">
       <div class="panel-heading">
         {{ rules.title }}
@@ -21,29 +21,20 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
+              <tr ng-repeat="row in $ctrl.data[$index]">
+                <td>{{ row.SiteId }}</td>
+                <td>{{ row.RuleGroupName }}</td>
+                <td>{{ row.RuleGroupType }}</td>
+                <td>{{ row.CreateTime | date:"yyyy-MM-dd hh:mm:ss" }}</td>
+                <td>{{ row.CreateTaskTime | date:"yyyy-MM-dd hh:mm:ss" }}</td>
                 <td>
                   <a href="">复制规则组</a>
                   <br>
                   <a href="">导入规则组</a>
                 </td>
               </tr>
-              <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>
-                  <a href="">复制规则组</a>
-                  <br>
-                  <a href="">导入规则组</a>
-                </td>
+              <tr ng-if="!$ctrl.data[$index].length">
+                <td colspan="6" class="text-center">空</td>
               </tr>
             </tbody>
           </table>  

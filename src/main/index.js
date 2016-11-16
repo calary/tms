@@ -2,11 +2,13 @@ var appComponent = require('./app.component');
 var constants = require('./constants');
 var states = require('./states');
 var configs = require('./configs');
+var filters = require('./filters');
 
 require('./main.css');
 
 module.exports = {
 	constants: {
+    apiBaseUrl: constants.apiBaseUrl,
 		rulesTypes: constants.rulesTypes,
 		ruleTypes: constants.ruleTypes,
 		taskStatus: constants.taskStatus,
@@ -19,6 +21,9 @@ module.exports = {
 	},
   components: {
     app: appComponent,
+  },
+  filters: {
+    taskStatusFilter: filters.taskStatusFilter
   },
   states: [states.appState],
   configBlocks: [

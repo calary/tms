@@ -1,0 +1,17 @@
+<div class="rules-list">
+  <div ng-repeat="rules in $ctrl.rulesTitles">
+    <div class="panel panel-default" ng-init="rules.isCollapsed=false">
+      <div class="panel-heading">
+        {{ rules.title }}
+        <button class="btn btn-link pull-right" style="margin-top:-5px;" ng-click="rules.isCollapsed = !rules.isCollapsed">
+        <span class="glyphicon" ng-class="{'glyphicon-menu-down': rules.isCollapsed, 'glyphicon-menu-up': !rules.isCollapsed}"></span>
+      </button>
+      </div>
+      <div uib-collapse="rules.isCollapsed">
+        <div class="panel-body">
+          <div class="grid" ui-grid="$ctrl.gridOptions[$index]"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

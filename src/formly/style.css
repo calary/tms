@@ -7,9 +7,17 @@
   top: 32px;
   font-size: 12px;
 }
+.form-horizontal ng-form {
+  display: block;
+}
 .form-horizontal .validation {
   left: 33.333333333%;
   margin-left: 10px;
+}
+.form-horizontal .control-label {
+  padding-left: 0;
+  padding-right: 0;
+  white-space: nowrap;
 }
 
 /* Inline Form */
@@ -18,12 +26,20 @@
 }
 .form-inline .formly-field {
   display: inline-block;
+  margin-right: 15px;
+}
+.form-inline .form-group {
+  margin-bottom: 15px;
 }
 .form-inline .formly-time-range,
 .form-inline .formly-time-start,
 .form-inline .formly-time-divider,
 .form-inline .formly-time-end {
   display: inline-block;
+}
+.form-inline .formly-time-start .form-control,
+.form-inline .formly-time-end .form-control {
+  min-width: 160px;
 }
 
 /* Time Range */
