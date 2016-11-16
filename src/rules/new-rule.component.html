@@ -12,9 +12,10 @@
 		</div>
 		<div class="well" ng-repeat="form in $ctrl.formList track by $index">
 			<button class="close" ng-click="$ctrl.removeSection($index)">&times;</button>
-			<form class="form-horizontal" name="form.form" novalidate>
+			<form class="form-horizontal" name="form.form" novalidate style="max-width: 680px;">
 				<div class="text-right">
 		      <button class="btn btn-default">保存</button>
+"
 		      <button class="btn btn-default" ng-click="form.options.resetModel()">清除规则</button>
 		    </div>
 		    <formly-form model="form.model" fields="form.fields" form="form.form" options="form.options">

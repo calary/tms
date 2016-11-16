@@ -22,7 +22,7 @@ function controller(ruleTypes){
     key: 'test2',
     type: 'bindTag',
     templateOptions: {
-      label: 'wawawa'
+      required: true
     }
   }];
 

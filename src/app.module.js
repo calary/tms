@@ -6,7 +6,7 @@ module.exports = angular.module('app', [
   'ui.bootstrap',
   'ui.select',
   'ui.router',
-  'ui.grid',
+  // 'ui.grid',
   'uiSwitch',
   'formly', 
   'formlyBootstrap'

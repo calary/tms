@@ -1,41 +1,29 @@
-<div>
-  <div>备用空间-----------</div>
+<div class="col-xs-12">
   <formly-field options="searchOptions" model="hideModel">
   </formly-field>
-  <div class="form-group row">
-    <label class="col-xs-3 control-label">关联标签</label>
-    <div class="col-xs-9">
-      <ui-select ng-model="keyword" theme="bootstrap">
-        <ui-select-match placeholder="{{to.placeholder}}">
-          {{$select.selected.title }}
-        </ui-select-match>
-        <ui-select-choices repeat="option.id as option in to.options" refresh="search($select.search, options)" refresh-delay="100">
-          <div ng-click="selectTag($index)">{{ option.title }}</div>
-        </ui-select-choices>
-      </ui-select>
-  </div>
-  <div class="row text-center">
-    <div class="col-xs-3">权重</div>
-    <div class="col-xs-9">已选标签</div>
-  </div>
-  <div class="row"
-       style="margin-bottom:14px"
-       ng-repeat="item in model[options.key] track by $index"
-       ng-init="itemOptions = copyItemOptions()">
-    <div class="col-xs-3">
-      <formly-field class="no-padding"
-                    options="itemOptions"
-                    model="model[options.key][$index]"
-                    form="form">
-      </formly-field>
+  <div ng-show="model[options.key].length">
+    <div class="clearfix text-center" style="margin-bottom:15px">
+      <div class="col-xs-4">权重</div>
+      <div class="col-xs-8">已选标签</div>
     </div>
-    <div class="col-xs-9">
-      <div>
-        {{ model[options.key][$index].tagTitle }}
-        <a ng-click="model[options.key].splice($index, 1)">
-          <span class="glyphicon glyphicon-trash"></span>
-        </a>
+    <div class="clearfix"
+         ng-repeat="item in model[options.key] track by $index"
+         ng-init="itemOptions = copyItemOptions($index)">
+      <div class="col-xs-4">
+        <formly-field class="no-padding"
+                      options="itemOptions"
+                      model="model"
+                      form="form">
+        </formly-field>
       </div>
-    </div>
+      <div class="col-xs-8" style="line-height: 32px;">
+        <div>
+          {{ model[options.key][$index].tagTitle }}
+          <a ng-click="model[options.key].splice($index, 1)">
+            <span class="glyphicon glyphicon-trash"></span>
+          </a>
+        </div>
+      </div>
+    </div>  
   </div>
 </div>

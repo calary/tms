@@ -1,0 +1,7 @@
+<ui-select ng-model="model[options.key]" required="{{to.required}}" disabled="{{to.disabled}}" theme="bootstrap" spinner-enabled="true">
+  <ui-select-match placeholder="{{to.placeholder}}">{{$select.selected[to.labelProp || 'name']}}</ui-select-match>
+  <ui-select-choices repeat="option[to.valueProp || 'value'] as option in to.options" refresh="to.refresh($select.search, options)" refresh-delay="{{to.refreshDelay}}">
+    <div ng-bind-html="option[to.labelProp] | highlight: $select.search"></div>
+  </ui-select-choices>
+  <ui-select-no-choices>无匹配结果</ui-select-no-choices>
+</ui-select>

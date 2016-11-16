@@ -6,31 +6,52 @@ module.exports = {
     wrapper: ['bootstrapLabel', 'bootstrapHasError']
   },
   controller: ['$scope', '$timeout', function($scope, $timeout) {
-    $scope.keyword = null;
     $scope.copyItemOptions = copyItemOptions;
-    $scope.search = search;
     $scope.selectTag = selectTag;
+
     // 独立model
     $scope.hideModel = {}; // 存放search
     $scope.searchOptions = {
       key: 'search',
-      type: 'input2',
+      type: 'uiSelectAsync2',
       templateOptions: {
-        label: '关联标签'
+        // angular 1.4+ 只允许select使用ng-options
+        // 所以必须显示设定替代的bs-options
+        optionsAttr: 'bs-options',
+        label: '关联标签',
+        options: [],
+        valueProp: 'id',
+        labelProp: 'title',
+        refresh: search,
+        refreshDelay: 100
       }
     };
+    var options;
 
     var model = $scope.model;
     var key = $scope.options.key;
 
-    var options;
-
-    $scope.$watch('keyword', function(value){
-      console.log(value);
+    $scope.$watch('hideModel.search', function(val){
+      if(!options) {
+        return;
+      }
+      options.forEach(function(option, index){
+        if(option.id === val) {
+          selectTag(option);
+        }
+      });
     });
 
-    function copyItemOptions() {
-      return { key: 'weight', type: 'input' };
+
+    function copyItemOptions(index) {
+      return { 
+        // model.key[0].weight
+        key: key + '[' + index + '].weight', 
+        type: 'input',
+        templateOptions: {
+          required: true
+        } 
+      };
     }
 
     function search(keyword, field){
@@ -46,8 +67,7 @@ module.exports = {
       }, 1000);
     }
 
-    function selectTag(index){
-      var tag = options[index];
+    function selectTag(tag){
       model[key] = model[key] || [];
       model[key].push({
         weight: '',

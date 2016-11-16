@@ -28,31 +28,19 @@ exports.runFormlyConfig = ['formlyConfig', 'formlyValidationMessages',
   formlyConfig.setType(require('./types/select2'));
   formlyConfig.setType(require('./types/static2'));
   formlyConfig.setType(require('./types/repeatSection'));
+  formlyConfig.setType(require('./types/uiSelect'));
+  formlyConfig.setType(require('./types/uiSelect2'));
+  formlyConfig.setType(require('./types/uiSelectAsync'));
+  formlyConfig.setType(require('./types/uiSelectAsync2'));
   // error message
   // 防止设置maxlength，输入超出长度之后，浏览器限制继续输入
   formlyConfig.extras.ngModelAttrsManipulatorPreferBound = true;
+  formlyValidationMessages.addStringMessage('required', '必填');
   formlyValidationMessages.addStringMessage('maxlength', '输入太长了');
   formlyValidationMessages.messages.pattern = function(viewValue, modelValue, scope) {
     return viewValue + ' is invalid';
   };
   formlyValidationMessages.addTemplateOptionValueMessage('minlength', 'minlength', '', 'is the minimum length', 'Too short');
-
-
-
-
-  // 测试类型
-  formlyConfig.setType({
-    name: 'multipleFields',
-    
-  });
-
-
-
-
-
-
-
-
 }];
 
 
