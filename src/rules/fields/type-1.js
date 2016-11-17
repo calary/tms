@@ -1,3 +1,1 @@
-module.exports = {
-  className: 'row',
-};
+module.exports = ;

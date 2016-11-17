@@ -1,4 +1,7 @@
 // 全局常量
+exports.store = {
+   hideEditArea: true
+};
 exports.apiBaseUrl = 'http://dm2log.arlakitchen.com:8089';
 
 // 规则组类型

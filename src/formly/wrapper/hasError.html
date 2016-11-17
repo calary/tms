@@ -1,7 +1,7 @@
 <div class="formly-template-wrapper form-group" ng-class="{'has-error': showError}">
   <formly-transclude></formly-transclude>
   <div class="validation"
-    ng-if="fc.$touched"
+    ng-if="fc.$touched || form.$submitted"
     ng-messages="fc.$error">
     <div ng-message="{{::name}}" ng-repeat="(name, message) in ::options.validation.messages">
     	<span class="glyphicon glyphicon-exclamation-sign"></span>

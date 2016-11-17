@@ -8,6 +8,7 @@ require('./main.css');
 
 module.exports = {
 	constants: {
+    store: constants.store,
     apiBaseUrl: constants.apiBaseUrl,
 		rulesTypes: constants.rulesTypes,
 		ruleTypes: constants.ruleTypes,
@@ -31,6 +32,6 @@ module.exports = {
     configs.httpConfigBlock
   ],
   runBlocks: [
-    configs.httpBackendRunBlock
+    
   ]
 };

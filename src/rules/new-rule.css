@@ -1,5 +1,12 @@
+.new-rule {
+  position: absolute;
+  left: 130px;
+  top: 48px;
+  right: 0;
+  bottom: 0;
+  padding-top: 15px;
+}
 .new-rule .app-main-nav {
-  margin-top: -15px;
   background-color: #ccc;
-  min-height: 505px;
+  /*min-height: 505px;*/
 }

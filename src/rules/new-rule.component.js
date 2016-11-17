@@ -27,6 +27,13 @@ function controller(ruleTypes){
   }];
 
   addSection();
+  $ctrl.formList[0].model = {
+    test2: [ 
+      { "weight": "1", "tagId": 5, "tagTitle": "eee" },
+      { "weight": "0.8", "tagId": 6, "tagTitle": "ee22e" },
+    ]
+  };
+
 
   function addSection(){
     $ctrl.formList.push({

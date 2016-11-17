@@ -9,7 +9,7 @@
     </form>
     <!-- <div>{{ $ctrl.model | json }}</div> -->
   </div>
-  <p><a ui-href="newTask" class="btn btn-primary">新建任务</a></p>
+  <p ng-hide="$ctrl.store.hideEditArea"><a ui-href="newTask" class="btn btn-primary">新建任务</a></p>
   <!-- 任务列表 -->
   <table class="table table-bordered table-hover">
     <thead class="bg-default">
@@ -20,9 +20,9 @@
         <td>开始时间</td>
         <td>结束时间</td>
         <td>状态</td>
-        <td class="hide">任务进度</td>
+        <td ng-hide="$ctrl.store.hideEditArea">任务进度</td>
         <td>创建时间</td>
-        <td>操作</td>
+        <td ng-hide="$ctrl.store.hideEditArea">操作</td>
       </tr>
     </thead>
     <tbody>
@@ -46,12 +46,12 @@
             <div ng-switch-when="4">未加入</div>
           </div>
         </td>
-        <td class="hide">
+        <td ng-hide="$ctrl.store.hideEditArea">
           <div class="text-center">22%</div>
           <uib-progressbar value="22"></uib-progressbar>
         </td>
         <td>{{ row.CreateTime | date:"yyyy-MM-dd hh:mm:ss"}}</td>
-        <td><a href="">编辑任务时间</a></td>
+        <td ng-hide="$ctrl.store.hideEditArea"><a href="">编辑任务时间</a></td>
       </tr>
       <tr ng-if="!$ctrl.data.length" class="text-center">
         <td colspan="9">空</td>

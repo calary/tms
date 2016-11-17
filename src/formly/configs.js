@@ -33,6 +33,8 @@ exports.runFormlyConfig = ['formlyConfig', 'formlyValidationMessages',
   formlyConfig.setType(require('./types/uiSelectAsync'));
   formlyConfig.setType(require('./types/uiSelectAsync2'));
   // error message
+  formlyConfig.extras.errorExistsAndShouldBeVisibleExpression = 
+    'fc.$touched || form.$submitted';
   // 防止设置maxlength，输入超出长度之后，浏览器限制继续输入
   formlyConfig.extras.ngModelAttrsManipulatorPreferBound = true;
   formlyValidationMessages.addStringMessage('required', '必填');

@@ -1,6 +1,7 @@
-controller.$inject = ['rulesService'];
-function controller(rulesService){
+controller.$inject = ['rulesService', 'store'];
+function controller(rulesService, store){
   var $ctrl = this;
+  $ctrl.store = store;
 
   $ctrl.data = [];
   $ctrl.rulesTitles = [

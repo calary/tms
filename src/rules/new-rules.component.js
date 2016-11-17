@@ -36,7 +36,7 @@ function controller($state, rulesTypes, ruleTypes){
   ];
 
   $ctrl.go = function(){
-    $state.go('newRule', {rulesId: 'test', ruleType: ruleTypes[0].id});
+    $state.go('newRuleList', {rulesId: 'test'});
   };
 }
 

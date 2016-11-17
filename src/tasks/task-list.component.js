@@ -1,10 +1,13 @@
 require('./task-list.component.css');
 
-controller.$inject = ['tasksService', 'rulesTypes', 'taskStatus'];
-function controller(tasksService, rulesTypes, taskStatus){
+controller.$inject = ['tasksService', 'rulesTypes', 'taskStatus', 'store'];
+function controller(tasksService, rulesTypes, taskStatus, store){
   var $ctrl = this;
   $ctrl.data = [];
   $ctrl.filter = filter;
+  $ctrl.store = store;
+
+  var _taskStatus = taskStatus.slice(0, -1); // 去掉未加入任务
 
   // formly配置 
   $ctrl.model = {
@@ -50,7 +53,7 @@ function controller(tasksService, rulesTypes, taskStatus){
             label: '任务状态',
             valueProp: 'id',
             labelProp: 'title',
-            options: [{id: undefined, title: '全部'}].concat(taskStatus)
+            options: [{id: undefined, title: '全部'}].concat(_taskStatus)
           }
         }
       ]

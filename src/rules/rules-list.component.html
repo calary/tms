@@ -17,7 +17,7 @@
                 <td>规则组类型</td>
                 <td>创建时间</td>
                 <td>加入任务时间</td>
-                <td>&nbsp;</td>
+                <td ng-hide="$ctrl.store.hideEditArea">&nbsp;</td>
               </tr>
             </thead>
             <tbody>
@@ -27,7 +27,7 @@
                 <td>{{ row.RuleGroupType }}</td>
                 <td>{{ row.CreateTime | date:"yyyy-MM-dd hh:mm:ss" }}</td>
                 <td>{{ row.CreateTaskTime | date:"yyyy-MM-dd hh:mm:ss" }}</td>
-                <td>
+                <td ng-hide="$ctrl.store.hideEditArea">
                   <a href="">复制规则组</a>
                   <br>
                   <a href="">导入规则组</a>

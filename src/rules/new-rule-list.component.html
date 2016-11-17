@@ -1,0 +1,12 @@
+<div class="new-rule">
+	<div class="app-main-nav">
+    <ul class="nav nav-pills nav-stacked">
+      <li ui-sref-active="active" ng-repeat="type in $ctrl.ruleTypes">
+      	<a ui-sref="{ruleType: type.id}">{{ type.title }}</a>
+      </li>
+    </ul>
+	</div>
+	<div class="app-main-content">
+		<ui-view class="app-ui-view"></ui-view>
+	</div>
+</div>

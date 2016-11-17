@@ -1,17 +1,22 @@
-<div class="row app-main">
-  <div class="col-sm-2 app-main-nav">
-    <h1 class="page-header">任务管理</h1>
+<div class="app-main">
+  <div class="app-main-nav">
+    <h1 class="page-title">任务管理</h1>
+    <p>
+      <label>
+        <input type="checkbox" ng-model="$ctrl.store.hideEditArea">隐藏
+      </label>
+    </p>
     <ul class="nav nav-pills nav-stacked">
       <li ui-sref-active="active"><a ui-sref="tasksList">任务列表</a></li>
-      <li ui-sref-active="active"><a ui-sref="newTask">新建任务</a></li>
+      <li ui-sref-active="active" ng-hide="$ctrl.store.hideEditArea"><a ui-sref="newTask">新建任务</a></li>
       <li ui-sref-active="active"><a ui-sref="rulesList">规则组列表</a></li>
-      <li ui-sref-active="active"><a ui-sref="newRules">新建规则组</a></li>
-      <li ui-sref-active="active"><a ui-sref="importRules">导入规则组</a></li>
-      <li ui-sref-active="active"><a ui-sref="test">测试</a></li>
+      <li ng-class="$ctrl.isNewRules()" ng-hide="$ctrl.store.hideEditArea"><a ui-sref="newRules">新建规则组</a></li>
+      <li ui-sref-active="active" ng-hide="$ctrl.store.hideEditArea"><a ui-sref="importRules">导入规则组</a></li>
+      <li ui-sref-active="active" ng-hide="$ctrl.store.hideEditArea"><a ui-sref="test">测试</a></li>
     </ul>
   </div>
-  <div class="col-sm-10">
-    <h1 class="page-header">{{$ctrl.$state.$current.title}}</h1>
+  <div class="app-main-content">
+    <h1 class="page-title">{{$ctrl.$state.$current.title}}</h1>
     <ui-view class="app-ui-view"></ui-view>
   </div>
 </div>

@@ -9,9 +9,9 @@ module.exports = {
     $scope.copyItemOptions = copyItemOptions;
     $scope.selectTag = selectTag;
 
-    // 独立model
+    // 独立表单
     $scope.hideModel = {}; // 存放search
-    $scope.searchOptions = {
+    $scope.hideFields = [{
       key: 'search',
       type: 'uiSelectAsync2',
       templateOptions: {
@@ -25,7 +25,8 @@ module.exports = {
         refresh: search,
         refreshDelay: 100
       }
-    };
+    }];
+    console.log($scope.hideFields);
     var options;
 
     var model = $scope.model;
@@ -48,6 +49,7 @@ module.exports = {
         // model.key[0].weight
         key: key + '[' + index + '].weight', 
         type: 'input',
+        className: 'no-label',
         templateOptions: {
           required: true
         } 

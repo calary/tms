@@ -1,5 +1,5 @@
 module.exports = {
   name: 'uiSelectAsync2',
-  extends: 'select2',
+  wrapper: ['horizontalBootstrapLabel', 'bootstrapHasError'],
   template: require('./uiSelectAsync.html')
 };
