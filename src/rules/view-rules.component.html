@@ -1,1 +1,62 @@
-<h1>新建任务</h1>
+<div class="view-rules">
+  <div class="clearfix">
+    <button class="btn btn-primary pull-right">导出规则组</button>
+  </div>
+  <dl class="dl-horizontal">
+    <dt>规则组类型：</dt>
+    <dd>网站</dd>
+    <dt>site ID：</dt>
+    <dd>1700</dd>
+    <dt>规则组名称：</dt>
+    <dd>奶芙官网打标签规则</dd>
+    <dt>规则组状态：</dt>
+    <dd>已加入任务</dd>
+    <dt>加入任务时间：</dt>
+    <dd>2016-10-10 12:22:05</dd>
+    <dt>创建时间：</dt>
+    <dd>2016-10-08 15:09:24</dd>
+  </dl>  
+  <div ng-repeat="ruleType in $ctrl.ruleTypes">
+    <div class="panel panel-default" ng-init="ruleType.isCollapsed=false">
+      <div class="panel-heading">
+        {{ ruleType.title }}
+        <button class="btn btn-link pull-right" ng-click="ruleType.isCollapsed = !ruleType.isCollapsed">
+          <span class="glyphicon" ng-class="{'glyphicon-menu-down': ruleType.isCollapsed, 'glyphicon-menu-up': !ruleType.isCollapsed}"></span>
+        </button>
+        <button class="btn btn-sm btn-primary pull-right">添加规则</button>
+      </div>
+      <div uib-collapse="ruleType.isCollapsed">
+        <div class="panel-body">
+          <table class="table table-bordered table-hover">
+            <thead class="bg-default">
+              <tr>
+                <td>Key</td>
+                <td>Tag</td>
+                <td>权重</td>
+                <td>执行次数</td>
+                <td ng-hide="$ctrl.store.hideEditArea">
+                  状态
+                  <button class="btn btn-sm btn-primary">保存</button>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="row in $ctrl.data[$index]">
+                <td>{{ row.SiteID }}</td>
+                <td>{{ row.RuleGroupName }}</td>
+                <td>{{ row.RuleGroupType }}</td>
+                <td>{{ row.CreateTime }}</td>
+                <td ng-hide="$ctrl.store.hideEditArea">
+                  启用停用
+                </td>
+              </tr>
+              <tr ng-if="!$ctrl.data[$index].length">
+                <td colspan="5" class="text-center">空</td>
+              </tr>
+            </tbody>
+          </table>  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -113,6 +113,15 @@ app {
 }
 
 
+/* panel-heading的button */
+.panel-heading .btn {
+  margin-top: -5px;
+}
+thead .btn {
+  margin-top: -10px;
+  margin-bottom: -8px;
+}
+
 /* 弹窗下的横版表单，修改尺寸*/
 .modal form .form-group .col-sm-4 {
     width: 40%;
@@ -122,36 +131,3 @@ app {
 }
 
 
-
-/* ui grid */
-.ui-grid-canvas {
-  height: auto !important;
-}
-.ui-grid {
-  height: auto !important;
-}
-.ui-grid-viewport {
-  width: 100% !important;
-  height: auto !important;
-  min-height: 0 !important;
-  overflow: visible !important;
-}
-
-.ui-grid-viewport .ui-grid-cell-contents {
-  height: auto !important;
-  word-wrap: break-word;
-  white-space: normal !important;
-}
-
-.ui-grid-row, .ui-grid-cell {
-  height: auto !important;
-}
-
-.ui-grid-cell {
-
-}
-
-.ui-grid-row div[role=row] {
-  display: flex;
-  align-content: stretch;
-}

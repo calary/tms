@@ -12,12 +12,19 @@ exports.newRulesState = {
   title: '新建规则组',
   component: 'newRules'
 };
-exports.viewRulesState = {
+exports.viewRulesListState = {
   parent: 'app',
-  name: 'viewRules',
-  url: '/rules/:rulesId',
+  name: 'viewRulesList',
+  url: '/rules/view',
   title: '规则组详情',
-  component: 'newRules'
+  component: 'viewRulesList'
+};
+exports.viewRulesState = {
+  parent: 'viewRulesList',
+  name: 'viewRules',
+  url: '/:rulesId',
+  title: '规则组详情',
+  component: 'viewRules'
 };
 exports.newRuleListState = {
   parent: 'app',

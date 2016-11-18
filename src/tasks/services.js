@@ -7,7 +7,7 @@ function tasksService($q, $http, apiBaseUrl){
 
   function getTasks(params){
     params = params || {};
-    return $http.get(apiBaseUrl + '/api/findtask', {params: params});
+    return $http.get(apiBaseUrl + '/task/api/findtask', {params: params});
   }
 }
 

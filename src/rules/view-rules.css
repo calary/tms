@@ -1,0 +1,7 @@
+.view-rules dt,
+.view-rules dd {
+  line-height: 2;
+}
+.view-rules dt {
+  font-weight: normal;
+}

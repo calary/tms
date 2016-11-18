@@ -1,8 +1,8 @@
 // 全局常量
 exports.store = {
-   hideEditArea: true
+   hideEditArea: false
 };
-exports.apiBaseUrl = 'http://dm2log.arlakitchen.com:8089';
+exports.apiBaseUrl = 'http://dmp.arlakitchen.com';
 
 // 规则组类型
 exports.rulesTypes = [

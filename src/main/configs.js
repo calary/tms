@@ -5,9 +5,18 @@ exports.otherwiseConfigBlock = ['$urlRouterProvider', function ($urlRouterProvid
 
 // $http interceptor
 exports.httpConfigBlock = ['$httpProvider', function ($httpProvider) { 
-  // 以jquery的params方法的方式对请求参数序列化
-  $httpProvider.defaults.paramSerializer = '$httpParamSerializerJQLike';
-
+  
+  $httpProvider.defaults.transformRequest = function(data, headersGetter){
+    var formData = new FormData();
+    angular.forEach(data, function(value, key){
+      formData.append(key, value);
+    });
+    return formData;
+  };
+  // 修改post的默认请求头
+  $httpProvider.defaults.headers.post = {
+    'Content-Type': undefined
+  };
   // 请求拦截器
   $httpProvider.interceptors.push(['$q', function($q){
     return {
@@ -21,9 +30,11 @@ exports.httpConfigBlock = ['$httpProvider', function ($httpProvider) {
         var data = res.data;
         var status = data && data.Status;
         var information = data && data.Information;
+        var _data = data && data.Data || {};
         
         if(status == 1) {
-          return $q.resolve(data.Data);
+          _data.Information = information;
+          return $q.resolve(_data);
         }
 
         return $q.reject(information);

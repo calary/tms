@@ -3,6 +3,7 @@ var newRuleListComponent = require('./new-rule-list.component');
 var newRulesComponent = require('./new-rules.component');
 var rulesListComponent = require('./rules-list.component');
 var viewRulesComponent = require('./view-rules.component');
+var viewRulesListComponent = require('./view-rules-list.component');
 var importRulesComponent = require('./import-rules.component');
 var importRulesModalComponent = require('./import-rules-modal.component');
 var states = require('./states');
@@ -12,10 +13,11 @@ var services = require('./services');
 module.exports = {
   components: {
     rulesList: rulesListComponent,
+    viewRulesList: viewRulesListComponent,
     viewRules: viewRulesComponent,
-    newRule: newRuleComponent,
-    newRuleList: newRuleListComponent,
     newRules: newRulesComponent,
+    newRuleList: newRuleListComponent,
+    newRule: newRuleComponent,
     importRules: importRulesComponent,
     importRulesModal: importRulesModalComponent,
   },
@@ -24,6 +26,7 @@ module.exports = {
     states.newRulesState,
     states.newRuleListState,
     states.newRuleState,
+    states.viewRulesListState,
     states.viewRulesState,
     states.importRuleState,
   ],

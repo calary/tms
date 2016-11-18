@@ -1,6 +1,10 @@
-controller.$inject = [];
-function controller(){
-  this.content = '编辑任务';
+require('./view-rules.css');
+
+controller.$inject = ['ruleTypes'];
+function controller(ruleTypes){
+  var $ctrl = this;
+
+  $ctrl.ruleTypes = [].concat(ruleTypes);
 }
 
 module.exports = {
