@@ -26,7 +26,6 @@ module.exports = {
         refreshDelay: 100
       }
     }];
-    console.log($scope.hideFields);
     var options;
 
     var model = $scope.model;

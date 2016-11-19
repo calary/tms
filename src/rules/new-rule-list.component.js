@@ -1,12 +1,24 @@
 require('./new-rule.css');
 
-controller.$inject = ['$state', 'ruleTypes'];
-function controller($state, ruleTypes){
+controller.$inject = ['$state', 'rulesService'];
+function controller($state, rulesService){
   var $ctrl = this;
-  $ctrl.ruleTypes = ruleTypes;
+  $ctrl.ruleTypes = [];
 
-  if($state.is('newRuleList')) {
-    $state.go('newRule', { ruleType: ruleTypes[0].id })
+  var rulesId = $state.params.rulesId;
+  
+  getRule();
+  function getRule(){
+    rulesService.getRule(rulesId).then(function(data){
+      if(data) {
+
+        $ctrl.ruleTypes = rulesService.getRuleTypes(data.GroupType);
+
+        if($state.is('newRuleList') && $ctrl.ruleTypes.length) {
+          $state.go('newRule', { ruleType: $ctrl.ruleTypes[0].id });
+        }
+      }
+    });
   }
 }
 

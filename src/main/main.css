@@ -61,6 +61,7 @@ app {
 }
 .app-main-nav .nav-pills > li > a {
   color: #000;
+  white-space: nowrap; 
   transition: .3s ease-in-out;
 }
 .app-main-nav .nav-pills > li > a:hover {

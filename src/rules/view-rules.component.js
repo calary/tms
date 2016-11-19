@@ -1,10 +1,32 @@
 require('./view-rules.css');
 
-controller.$inject = ['ruleTypes'];
-function controller(ruleTypes){
+controller.$inject = ['$state', 'rulesService'];
+function controller($state, rulesService){
   var $ctrl = this;
+  $ctrl.data = {};
+  $ctrl.ruleTypes = [];
 
-  $ctrl.ruleTypes = [].concat(ruleTypes);
+  var rulesId = $state.params.rulesId;
+
+  getRule();
+  function getRule(){
+    rulesService.getRule(rulesId).then(function(data){
+      if(data) {
+        $ctrl.data = data;
+        $ctrl.ruleTypes = rulesService.getRuleTypes(data.GroupType);
+        (data.Module || []).forEach(function(module){
+          var type = $ctrl.ruleTypes.find(function(type){
+            return type.title == module.Name;
+          });
+          console.log(module.Name);
+          if(type) {
+            type.rules = module.Content;
+          }
+        });
+      }
+    });
+  }
+
 }
 
 module.exports = {

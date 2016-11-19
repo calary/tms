@@ -1,9 +1,10 @@
-controller.$inject = ['$modalService', '$state'];
-function controller($modalService, $state){
+controller.$inject = ['$modalService', '$state', 'tasksService'];
+function controller($modalService, $state, tasksService){
   var $ctrl = this;
   $ctrl.options = {};
   $ctrl.fields = [];
   $ctrl.model = {};
+  $ctrl.createTask = createTask;
 
   // 当前是否是创建任务页
   var isNewTask = $state.is('newTask');
@@ -12,18 +13,28 @@ function controller($modalService, $state){
     $ctrl.model.ruleType = 1;
     $ctrl.fields = [
       {
-        key: 'ruleType',
+        key: 'RuleGroupID',
         type: 'select2',
         templateOptions: {
           label: '选择标签规则组',
           valueProp: 'id',
           labelProp: 'title',
-          options: [{ id: 1, title: '选项'}],
+          options: [],
           required: true
-        }
+        },
+        controller: ['$scope', 'rulesService', function($scope, rulesService){
+          rulesService.getRules({ Status: 4 })
+          .then(function(data){
+            console.log(data);
+            // RuleGroupType
+            // 1.如选择的标签规则组类型是呼叫中心或社会化媒体
+            // 则隐藏输入site ID/广告ID一项。
+            $scope.to.options = data && data.Data || [];
+          });
+        }]
       },
       {
-        key: 'sideId',
+        key: 'SiteID',
         type: 'input2',
         templateOptions: {
           label: 'site ID/广告ID',
@@ -66,9 +77,19 @@ function controller($modalService, $state){
     ];
   }
 
-  // function definition
-  function onSubmit() {
-    alert(JSON.stringify($ctrl.model), null, 2);
+  function createTask(){
+    var data = {
+      RuleGroupID: $ctrl.model.RuleGroupID,
+      SiteID:      $ctrl.model.SiteID,
+      StartTime:   $ctrl.model.time.min,
+      EndTime:     $ctrl.model.time.max
+    };
+    console.log(data);
+    tasksService.createTask(data).then(function(data){
+      console.log(data);
+    }, function(reason){
+      console.log(reason);
+    });
   }
 }
 

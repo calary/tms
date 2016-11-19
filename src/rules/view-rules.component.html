@@ -4,17 +4,17 @@
   </div>
   <dl class="dl-horizontal">
     <dt>规则组类型：</dt>
-    <dd>网站</dd>
+    <dd>{{ $ctrl.data.GroupType }}</dd>
     <dt>site ID：</dt>
-    <dd>1700</dd>
+    <dd>{{ $ctrl.data.SiteID }}</dd>
     <dt>规则组名称：</dt>
-    <dd>奶芙官网打标签规则</dd>
+    <dd>{{ $ctrl.data.GroupName }}</dd>
     <dt>规则组状态：</dt>
-    <dd>已加入任务</dd>
+    <dd>{{ $ctrl.data.GroupStatus }}</dd>
     <dt>加入任务时间：</dt>
-    <dd>2016-10-10 12:22:05</dd>
+    <dd>{{ $ctrl.data.JoinTaskTime | date:"yyyy-MM-dd hh:mm:ss" }}</dd>
     <dt>创建时间：</dt>
-    <dd>2016-10-08 15:09:24</dd>
+    <dd>{{ $ctrl.data.CreateTime | date:"yyyy-MM-dd hh:mm:ss" }}</dd>
   </dl>  
   <div ng-repeat="ruleType in $ctrl.ruleTypes">
     <div class="panel panel-default" ng-init="ruleType.isCollapsed=false">
@@ -41,16 +41,16 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="row in $ctrl.data[$index]">
-                <td>{{ row.SiteID }}</td>
-                <td>{{ row.RuleGroupName }}</td>
-                <td>{{ row.RuleGroupType }}</td>
-                <td>{{ row.CreateTime }}</td>
+              <tr ng-repeat="row in ruleType.rules">
+                <td>{{ row.Key }}</td>
+                <td ng-bind-html="row.Tag"></td>
+                <td>{{ row.Weight }}</td>
+                <td>{{ row.ExecCount }}</td>
                 <td ng-hide="$ctrl.store.hideEditArea">
-                  启用停用
+                  {{ row.Status }}
                 </td>
               </tr>
-              <tr ng-if="!$ctrl.data[$index].length">
+              <tr ng-if="!ruleType.rules.length">
                 <td colspan="5" class="text-center">空</td>
               </tr>
             </tbody>
