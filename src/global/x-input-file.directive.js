@@ -26,7 +26,7 @@ function directive(){
 		].join(''),
 		link: function($scope, $ele, $attr){
 			var $input = $ele.find('input');
-      console.log('ere');
+      // console.log('ere');
 			$input.bind('change', onChange);
 
 			function onChange(e) {

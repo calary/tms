@@ -7,15 +7,18 @@ function controller($uibModal, rulesService){
 
   $ctrl.errMsg = '';
   $ctrl.succMsg = '';
+  $ctrl.uploading = false;
 
   function selectFile(file){
     $ctrl.errMsg = '';
     $ctrl.succMsg = '';
-    console.log(file);
+    $ctrl.uploading = true;
     rulesService.importFile(file)
     .then(function(data){
+      $ctrl.uploading = false;
       $ctrl.succMsg = data.Information;
     }, function(reason){
+      $ctrl.uploading = false;
       $ctrl.errMsg = reason;
     });
   }

@@ -17,8 +17,8 @@ function controller($modalService, $state, tasksService){
         type: 'select2',
         templateOptions: {
           label: '选择标签规则组',
-          valueProp: 'id',
-          labelProp: 'title',
+          valueProp: 'RuleGroupID',
+          labelProp: 'RuleGroupName',
           options: [],
           required: true
         },
@@ -29,7 +29,11 @@ function controller($modalService, $state, tasksService){
             // RuleGroupType
             // 1.如选择的标签规则组类型是呼叫中心或社会化媒体
             // 则隐藏输入site ID/广告ID一项。
-            $scope.to.options = data && data.Data || [];
+            var options = data && data.Data || [];
+            $scope.to.options = options;
+            if(options.length) {
+              $scope.model.RuleGroupID = options[0].RuleGroupID;
+            }
           });
         }]
       },

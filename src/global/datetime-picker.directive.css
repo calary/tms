@@ -1,0 +1,27 @@
+.form-inline .datetime-range,
+.form-inline .datetime-range-start,
+.form-inline .datetime-range-divider,
+.form-inline .datetime-range-end {
+  display: inline-block;
+}
+.form-inline .datetime-range-start .form-control,
+.form-inline .datetime-range-end .form-control {
+  min-width: 160px;
+}
+.form-horizontal .datetime-range {
+  overflow: hidden;
+}
+.form-horizontal .datetime-range-start,
+.form-horizontal .datetime-range-end {
+  float: left;
+  width: 45%;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap; 
+}
+.form-horizontal .datetime-range-divider {
+  float: left;
+  width: 10%;
+  padding: 0;
+  text-align: center;
+}

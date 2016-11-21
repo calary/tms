@@ -8,6 +8,7 @@ function rulesService($q, $http, apiBaseUrl, rulesTypes){
     importFile: importFile
   };
 
+  // { Status: status }
   function getRules(params){
     params = params || {};
     return $http.get(apiBaseUrl + '/task/api/findtask', {params: params});

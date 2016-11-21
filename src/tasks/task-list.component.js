@@ -105,6 +105,14 @@ function controller(tasksService, rulesTypes, taskStatus, store){
 
     tasksService.getTasks(params).then(function(data){
       $ctrl.data = data && data.Data || [];
+      $ctrl.data.forEach(function(row){
+        var status = taskStatus.find(function(status){
+          return status.id == row.Status;
+        });
+        if(status) {
+          row.StatusTitle = status.title;
+        }
+      });
     }, function(reason){
       console.log(reason);
     });

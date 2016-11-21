@@ -1,13 +1,17 @@
 <div style="min-height: 200px;">
   <!-- 打开弹窗选择文件 -->
   <p class="hide">
-    <button class="btn btn-primary" ng-click="$ctrl.showImportModal()">导入规则组</button>
+    <button class="btn btn-primary" ng-click="$ctrl.showImportModal()">
+      导入规则组
+    </button>
   </p>
   <!-- 直接选择文件 -->
   <p>
-    <input-file class="btn btn-primary" on-change="$ctrl.selectFile(file)">选择文件</input-file>
+    <input-file class="btn btn-primary" on-change="$ctrl.selectFile(file)"> 
+      选择文件
+    </input-file>
   </p>
-  <p class="text-warn">
+  <p class="text-warn hide">
     数据上传中47%
   </p>
   <p ng-show="$ctrl.succMsg">

@@ -76,6 +76,14 @@ function controller($modalService, $datetimeModalService){
       {id: 5, name: 'fifth'},
   ];
   this.selected = { value: this.itemArray[0] };
+
+  this.day = new Date();
+  this.maxDate = new Date(2016, 11,20);
+
+  this.range = {
+    min: new Date(2016, 10, 3),
+    max: new Date(2016, 10, 27)
+  };
 }
 
 module.exports = {

@@ -2,9 +2,10 @@
   <formly-form model="$ctrl.model" fields="$ctrl.fields" form="$ctrl.form" options="$ctrl.options">
   </formly-form>
   <div class="clearfix">
-    <button type="button" class="btn btn-default pull-right" ng-click="$ctrl.options.resetModel()">清除规则</button>  
-    <button type="submit" class="btn btn-primary submit-button pull-right" ng-disabled="$ctrl.form.$invalid">保存</button>
+    <button type="button" class="btn btn-default pull-right" ng-click="$ctrl.options.resetModel()">重置</button>  
+    <button type="submit" class="btn btn-primary submit-button pull-right">保存</button>
   </div>
 </form>
-<div>{{$ctrl.model}}</div>
+<pre>{{$ctrl.model | json}}</pre>
+<pre>{{$ctrl.form | json}}</pre>
 <button class="btn btn-primary" ng-click="$ctrl.alert()">打开</button>

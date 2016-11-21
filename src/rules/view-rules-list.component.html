@@ -1,8 +1,12 @@
 <ul class="nav nav-tabs" style="margin-bottom:-1px;">
-  <li role="presentation" class="active"><a href="#">Home</a></li>
-  <li role="presentation"><a href="#">Profile</a></li>
-  <li role="presentation"><a href="#">Messages</a></li>
-  <li role="presentation"><a href="#">Messages</a></li>
+  <li ng-repeat="row in $ctrl.data track by $index" ui-sref-active="active">
+    <a ui-sref="viewRules({ rulesId: row.RuleGroupID })">
+      <span ng-hide="!row.SiteID">
+        {{ row.SiteID }}-
+      </span>
+      {{ row.RuleGroupName }}
+    </a>
+  </li>
 </ul>
 <div class="panel panel-default">
   <div class="panel-body">

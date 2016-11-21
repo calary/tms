@@ -33,25 +33,19 @@
         <td>{{ row.StartDate | date:"yyyy-MM-dd hh:mm:ss" }}</td>
         <td>{{ row.EndDate | date:"yyyy-MM-dd hh:mm:ss" }}</td>
         <td>
-          <div ng-switch="row.Status">
-            <div ng-switch-when="0">未开始</div>
-            <div ng-switch-when="1">
-              执行中
-              <switch name="enabled" ng-model="enabled" class="green"></switch></div>
-            <div ng-switch-when="2">
-              暂停中
-              <switch name="enabled" ng-model="enabled" class="green"></switch>
-            </div>
-            <div ng-switch-when="3">已结束</div>
-            <div ng-switch-when="4">未加入</div>
-          </div>
+          {{ row.StatusTitle }}
+          <span  ng-hide="$ctrl.store.hideEditArea" ng-if="row.Status==1 || row.Status==2">
+            <switch name="enabled" ng-model="enabled" class="green"></switch></div>
+          </span>
         </td>
         <td ng-hide="$ctrl.store.hideEditArea">
           <div class="text-center">22%</div>
           <uib-progressbar value="22"></uib-progressbar>
         </td>
         <td>{{ row.CreateTime | date:"yyyy-MM-dd hh:mm:ss"}}</td>
-        <td ng-hide="$ctrl.store.hideEditArea"><a href="">编辑任务时间</a></td>
+        <td ng-hide="$ctrl.store.hideEditArea">
+          <a ui-sref="editTask({taskId: row.TaskID})">编辑任务时间</a>
+        </td>
       </tr>
       <tr ng-if="!$ctrl.data.length" class="text-center">
         <td colspan="9">空</td>

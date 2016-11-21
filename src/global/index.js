@@ -3,6 +3,8 @@ var datetimeModalComponent = require('./datetime-modal.component');
 var baseModalService = require('./base-modal.service');
 var datetimeModalService = require('./datetime-modal.service');
 var xInputFileDirective = require('./x-input-file.directive');
+var datetimePickerDirective = require('./datetime-picker.directive');
+var datetimeRangeDirective = require('./datetime-range.directive');
 var configs = require('./configs');
 
 module.exports = {
@@ -11,7 +13,9 @@ module.exports = {
     datetimeModal:　datetimeModalComponent
   },
   directives: {
-    inputFile: xInputFileDirective
+    inputFile: xInputFileDirective,
+    datetimePicker: datetimePickerDirective,
+    datetimeRange: datetimeRangeDirective
   },
   factories: {
     $modalService: baseModalService,

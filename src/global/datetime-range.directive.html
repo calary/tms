@@ -1,0 +1,13 @@
+<div class="datetime-range">
+  <datetime-picker 
+    class="datetime-range-start"
+    ng-model="minDate"
+    max-date="maxDate"
+  ></datetime-picker>
+  <div class="datetime-range-divider" style="line-height: 34px;"> 至 </div>
+  <datetime-picker 
+    class="datetime-range-end"
+    ng-model="maxDate"
+    min-date="minDate"
+  ></datetime-picker>
+</div>

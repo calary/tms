@@ -10,7 +10,7 @@
       <li ui-sref-active="active"><a ui-sref="tasksList">任务列表</a></li>
       <li ui-sref-active="active" ng-hide="$ctrl.store.hideEditArea"><a ui-sref="newTask">新建任务</a></li>
       <li ui-sref-active="active"><a ui-sref="rulesList">规则组列表</a></li>
-      <li ui-sref-active="active"><a ui-sref="viewRulesList">执行期规则组</a></li>
+      <li ui-sref-active="active" ng-hide="$ctrl.store.hideEditArea"><a ui-sref="viewRulesList">执行期规则组</a></li>
       <li ng-class="{'active': $ctrl.isNewRules}" ng-hide="$ctrl.store.hideEditArea"><a ui-sref="newRules">新建规则组</a></li>
       <li ui-sref-active="active"><a ui-sref="importRules">导入规则组</a></li>
       <li ui-sref-active="active" ng-hide="$ctrl.store.hideEditArea"><a ui-sref="test">测试</a></li>

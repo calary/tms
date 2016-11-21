@@ -19,4 +19,13 @@
     </ui-select-choices>
 </ui-select>
 
+
+
+<form action="" class="form-horizontal">
+  <datetime-picker ng-model="$ctrl.day" max-date="$ctrl.maxDate"></datetime-picker>
+  <p>{{ $ctrl.day }}</p>
+
+  <datetime-range ng-model="$ctrl.range"></datetime-range>
+  <p>{{ $ctrl.range }}</p>
+</form>
 <button class="btn btn-primary" ng-click="$ctrl.alert()">打开</button>
