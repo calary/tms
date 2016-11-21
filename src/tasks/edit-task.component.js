@@ -5,6 +5,7 @@ function controller($modalService, $state, tasksService){
   $ctrl.fields = [];
   $ctrl.model = {};
   $ctrl.createTask = createTask;
+  $ctrl.data = {}; // 编辑任务用
 
   // 当前是否是创建任务页
   var isNewTask = $state.is('newTask');
@@ -55,30 +56,47 @@ function controller($modalService, $state, tasksService){
       }
     ];
   } else {
-    $ctrl.fields = [
-      {
-        type: 'static2',
-        templateOptions: {
-          label: '标签规则组',
-          text: '1700-奶芙官网打标签规则'
-        }
-      }, 
-      {
-        type: 'static2',
-        templateOptions: {
-          label: 'site ID/广告ID',
-          text: '1700'
-        }
-      },
-      {
-        key: 'time',
-        type: 'timeRange2',
-        templateOptions: {
-          label: '设置任务周期',
-          required: true
-        }
+    tasksService.getTasks({HYUniqueid: $state.params.taskId})
+    .then(function(data){
+      console.log(data);
+      if(data && data.Data && data.Data.length) {
+        var _data = data.Data[0];
+        $ctrl.data = _data;
+        $ctrl.model = {
+          RuleGroupID: _data.RuleGroupName,
+          SiteID: _data.SiteID,
+          time: {
+            min: new Date(_data.StartDate),
+            max: new Date(_data.EndDate)
+          }
+        };
+        $ctrl.fields = [
+          {
+            key: 'RuleGroupID',
+            type: 'static2',
+            templateOptions: {
+              label: '标签规则组'
+            }
+          }, 
+          {
+            key: 'SiteID',
+            type: 'static2',
+            hideExpression: '!model.SiteID',
+            templateOptions: {
+              label: 'site ID/广告ID'
+            }
+          },
+          {
+            key: 'time',
+            type: 'timeRange2',
+            templateOptions: {
+              label: '设置任务周期',
+              required: true
+            }
+          }
+        ];
       }
-    ];
+    });
   }
 
   function createTask(){

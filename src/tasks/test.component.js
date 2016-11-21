@@ -1,5 +1,6 @@
-controller.$inject = ['$modalService', '$datetimeModalService'];
-function controller($modalService, $datetimeModalService){
+controller.$inject = ['$modalService', '$datetimeModalService', '$timeout'];
+function controller($modalService, $datetimeModalService, $timeout){
+  var $ctrl = this;
   var testData = [
     {
       "id": 1,
@@ -84,6 +85,19 @@ function controller($modalService, $datetimeModalService){
     min: new Date(2016, 10, 3),
     max: new Date(2016, 10, 27)
   };
+
+  $timeout(function(){
+    console.log('update');
+    $ctrl.day = new Date();
+    $ctrl.range = {
+      min: new Date(2016, 10, 4),
+      max: new Date(2016, 10, 28)
+    };
+    $ctrl.model.time = {
+      min: new Date(2016, 10, 4),
+      max: new Date(2016, 10, 28)
+    };
+  }, 3000);
 }
 
 module.exports = {
