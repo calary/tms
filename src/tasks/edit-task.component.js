@@ -92,8 +92,8 @@ function controller($modalService, $state, tasksService, $modalService){
         $ctrl.model = {
           TaskID: _data.TaskID,
           time: {
-            min: new Date(_data.StartDate),
-            max: new Date(_data.EndDate)
+            min: _data.StartDate,
+            max: _data.EndDate
           }
         };
         $ctrl.fields = [
