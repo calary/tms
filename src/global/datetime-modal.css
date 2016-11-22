@@ -1,5 +1,8 @@
-.datetime-modal .modal-dialog {
-  width: 284px;
+@media (min-width: 768px) {
+  .datetime-modal .modal-dialog {
+    /*width: 284px;*/
+    width: 325px;
+  }
 }
 
 .datetime-modal .row {
@@ -20,7 +23,7 @@
 }
 /* timePicker样式 */
 .datetime-modal .uib-timepicker {
-  margin-top: 10px;
+  margin: 10px auto 0;
 }
 .datetime-modal .uib-time input {
   width: 40px;

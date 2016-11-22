@@ -7,6 +7,7 @@ function controller($state, rulesService){
   $ctrl.ruleTypes = [];
 
   var rulesId = $state.params.rulesId;
+  console.log('enter view-rules');
 
   getRule();
   function getRule(){
@@ -20,7 +21,8 @@ function controller($state, rulesService){
           });
           console.log(module.Name);
           if(type) {
-            type.rules = module.Content;
+            type.rules = (type.rules || []).concat(module.Content);
+            // type.rules = module.Content;
           }
         });
       }

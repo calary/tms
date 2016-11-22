@@ -22,7 +22,7 @@
         <td>状态</td>
         <td ng-hide="$ctrl.store.hideEditArea">任务进度</td>
         <td>创建时间</td>
-        <td ng-hide="$ctrl.store.hideEditArea">操作</td>
+        <td>操作</td>
       </tr>
     </thead>
     <tbody>
@@ -30,8 +30,8 @@
         <td>{{ row.SiteID }}</td>
         <td>{{ row.RuleGroupName }}</td>
         <td>{{ row.RuleGroupType }}</td>
-        <td>{{ row.StartDate | date:"yyyy-MM-dd hh:mm:ss" }}</td>
-        <td>{{ row.EndDate | date:"yyyy-MM-dd hh:mm:ss" }}</td>
+        <td>{{ row.StartDate | date2 }}</td>
+        <td>{{ row.EndDate | date2 }}</td>
         <td>
           {{ row.StatusTitle }}
           <span  ng-hide="$ctrl.store.hideEditArea" ng-if="row.Status==1 || row.Status==2">
@@ -42,8 +42,8 @@
           <div class="text-center">22%</div>
           <uib-progressbar value="22"></uib-progressbar>
         </td>
-        <td>{{ row.CreateTime | date:"yyyy-MM-dd hh:mm:ss"}}</td>
-        <td ng-hide="$ctrl.store.hideEditArea">
+        <td>{{ row.CreateTime | date2 }}</td>
+        <td>
           <a ui-sref="editTask({taskId: row.TaskID})">编辑任务时间</a>
         </td>
       </tr>

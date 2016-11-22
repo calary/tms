@@ -25,8 +25,8 @@
                 <td>{{ row.SiteID }}</td>
                 <td>{{ row.RuleGroupName }}</td>
                 <td>{{ row.RuleGroupType }}</td>
-                <td>{{ row.CreateTime | date:"yyyy-MM-dd hh:mm:ss" }}</td>
-                <td>{{ row.CreateTaskTime | date:"yyyy-MM-dd hh:mm:ss" }}</td>
+                <td>{{ row.CreateTime | date2 }}</td>
+                <td>{{ row.CreateTaskTime | date2 }}</td>
                 <td ng-hide="$ctrl.store.hideEditArea">
                   <a href="">复制规则组</a>
                   <br>

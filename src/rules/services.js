@@ -11,11 +11,11 @@ function rulesService($q, $http, apiBaseUrl, rulesTypes){
   // { Status: status }
   function getRules(params){
     params = params || {};
-    return $http.get(apiBaseUrl + '/task/api/findtask', {params: params});
+    return $http.get(apiBaseUrl + '/task/api/findrulegroup', {params: params});
   }
 
   function getRule(id){
-    // return $http.get(apiBaseUrl + '/task/api/TaskDetail/' + id);
+    return $http.get(apiBaseUrl + '/task/api/TaskDetail/' + id);
 
     var data = {
       "GroupType":"网站",
@@ -79,14 +79,25 @@ function rulesService($q, $http, apiBaseUrl, rulesTypes){
       return type.title === rulesType;
     });
     if(type) {
-      return [].concat(type.types);
+      return angular.copy(type.types);
     }
     return [];
   }
 
   function importFile(file){
     var data = { pic: file };
-    return $http.post(apiBaseUrl + '/rule/api/RuleImport', data);
+    return $http.post(apiBaseUrl + '/rule/api/RuleImport', data, {
+      headers: {
+        'Content-Type': undefined
+      },
+      transformRequest: function(data, headersGetter){
+        var formData = new FormData();
+        angular.forEach(data, function(value, key){
+          formData.append(key, value);
+        });
+        return formData;
+      }
+    });
   }
 }
 

@@ -90,7 +90,8 @@ function controller($modalService, $state, tasksService, $modalService){
         var _data = data.Data[0];
         $ctrl.data = _data;
         $ctrl.model = {
-          TaskID: _data.TaskID,
+          RuleGroupID: _data.RuleGroupName,
+          SiteID: _data.SiteID,
           time: {
             min: new Date(_data.StartDate),
             max: new Date(_data.EndDate)
@@ -98,18 +99,18 @@ function controller($modalService, $state, tasksService, $modalService){
         };
         $ctrl.fields = [
           {
+            key: 'RuleGroupID',
             type: 'static2',
             templateOptions: {
-              label: '标签规则组',
-              text: _data.RuleGroupName
+              label: '标签规则组'
             }
           }, 
           {
+            key: 'SiteID',
             type: 'static2',
             hideExpression: '!model.SiteID',
             templateOptions: {
-              label: 'site ID/广告ID',
-              text: _data.SiteID
+              label: 'site ID/广告ID'
             }
           },
           {
@@ -132,7 +133,6 @@ function controller($modalService, $state, tasksService, $modalService){
 
     var data = {
       RuleGroupID: $ctrl.model.RuleGroupID,
-      TaskID:      $ctrl.model.TaskID,
       SiteID:      $ctrl.model.SiteID,
       StartTime:   $ctrl.model.time.min,
       EndTime:     $ctrl.model.time.max
@@ -145,7 +145,7 @@ function controller($modalService, $state, tasksService, $modalService){
           hideCancel: true
         }).then(gotoList);
       }, function(reason){
-        $modalService.alert({content: reason});
+        $modalService.alert({content: '创建失败<br>' + reason});
       });  
     } else {
       tasksService.editTask(data).then(function(data){
@@ -154,13 +154,13 @@ function controller($modalService, $state, tasksService, $modalService){
           hideCancel: true
         }).then(gotoList);
       }, function(reason){
-        $modalService.alert({content: reason});
+        $modalService.alert({content: '修改失败<br>' + reason});
       });  
     }
   }
 
   function gotoList(){
-    $state.go('tasksList');
+    $state.go('taskList');
   }
 }
 

@@ -23,10 +23,21 @@
 
 
 <form action="" class="form-horizontal">
-  <datetime-picker ng-model="$ctrl.day" max-date="$ctrl.maxDate"></datetime-picker>
+  <datetime-picker ng-model="$ctrl.day" max-date="$ctrl.maxDate" mode="{{$ctrl.mode}}"></datetime-picker>
   <p>{{ $ctrl.day }}</p>
 
-  <datetime-range ng-model="$ctrl.range"></datetime-range>
+  <datetime-range ng-model="$ctrl.range" mode="{{$ctrl.mode}}"></datetime-range>
   <p>{{ $ctrl.range }}</p>
 </form>
 <button class="btn btn-primary" ng-click="$ctrl.alert()">打开</button>
+
+<h1>原始日期字符串</h1>
+<h1>{{$ctrl.sTimeString}}</h1>
+<h1>date $filter格式化</h1>
+<h1>{{$ctrl.sTimeString | date:"yyyy-MM-dd hh:mm:ss"}}</h1>
+<h1>date2 $filter格式化</h1>
+<h1>{{$ctrl.sTimeString | date2}}</h1>
+<h1>dateString.fromString</h1>
+<h1>{{$ctrl.sTime | date:"yyyy-MM-dd hh:mm:ss"}}</h1>
+<h1>dateString.toString</h1>
+<h1>{{$ctrl.sTimeString2}}</h1>

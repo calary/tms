@@ -3,7 +3,8 @@ function tasksService($q, $http, apiBaseUrl){
   
   return {
     getTasks: getTasks,
-    createTask: createTask
+    createTask: createTask,
+    editTask: editTask
   };
 
   function getTasks(params){
@@ -19,6 +20,15 @@ function tasksService($q, $http, apiBaseUrl){
       EndTime:     _data.EndTime
     };
     return $http.post(apiBaseUrl + '/task/api/task', data);
+  }
+
+  function editTask(_data) {
+    var data = {
+      HYUniqueID:  _data.TaskID,
+      StartTime:   _data.StartTime,
+      EndTime:     _data.EndTime
+    };
+    return $http.post(apiBaseUrl + '/task/api/task?method=1', data);
   }
 }
 

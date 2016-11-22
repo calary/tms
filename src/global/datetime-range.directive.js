@@ -5,6 +5,9 @@ function directive($datetimeModalService){
 	return {
 		retrict: 'AE',
     require: 'ngModel',
+    scope: {
+      mode: '@'
+    },
 		template: require('./datetime-range.directive.html'),
 		link: function($scope, $ele, $attr, ngModel){
 
@@ -14,17 +17,6 @@ function directive($datetimeModalService){
       // ngModel.$parsers.push(function(viewValue){
         
       // });
-      // required与required的监听
-      var required = false;
-      $attr.$observe('required', function(value){
-        if(value === true || value === 'true') {
-          required = true;
-        } else {
-          required = false;
-        }
-        ngModel.$validate();
-      });
-
 
       $scope.$watch('minDate+maxDate', function(){
         var min = $scope.minDate;
@@ -49,6 +41,17 @@ function directive($datetimeModalService){
         $scope.maxDate = value.max;
       };
 
+      // 属性required与required的监听
+      var required = false;
+      $attr.$observe('required', function(value){
+        if(value === true || value === 'true') {
+          required = true;
+        } else {
+          required = false;
+        }
+        ngModel.$validate();
+      });
+      // required validator
       ngModel.$validators.required = function(value) {
         return !required || !!(value && value.min && value.max);
       };

@@ -1,6 +1,7 @@
-controller.$inject = ['$modalService', '$datetimeModalService', '$timeout'];
-function controller($modalService, $datetimeModalService, $timeout){
+controller.$inject = ['$modalService', '$datetimeModalService', '$timeout', 'dateService'];
+function controller($modalService, $datetimeModalService, $timeout, dateService){
   var $ctrl = this;
+  this.mode = 'year';
   var testData = [
     {
       "id": 1,
@@ -58,7 +59,8 @@ function controller($modalService, $datetimeModalService, $timeout){
     optionsTypes: ['timeRange2'],
     templateOptions: {
       label: '设置任务周期',
-      required: true
+      required: true,
+      mode: this.mode
     }
   });
   // this.fields.push({});
@@ -86,6 +88,7 @@ function controller($modalService, $datetimeModalService, $timeout){
     max: new Date(2016, 10, 27)
   };
 
+
   $timeout(function(){
     console.log('update');
     $ctrl.day = new Date();
@@ -98,6 +101,11 @@ function controller($modalService, $datetimeModalService, $timeout){
       max: new Date(2016, 10, 28)
     };
   }, 3000);
+
+
+  $ctrl.sTimeString = '2016-10-20T19:17:05';
+  $ctrl.sTime = dateService.fromString($ctrl.sTimeString);
+  $ctrl.sTimeString2 = dateService.toString($ctrl.sTime);
 }
 
 module.exports = {

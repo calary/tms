@@ -1,9 +1,9 @@
 <div class="modal-header bg-primary" ng-show="$ctrl.title" >
 	<button type="button" class="close" ng-click="$ctrl.cancel();"><span>&times;</span></button>
-    <h4 class="modal-title">{{ $ctrl.title }}</h4>
+    <h4 class="modal-title" ng-bind-html="$ctrl.title"></h4>
 </div>
 <div class="modal-body" ng-class="{'modal-toast': $ctrl.isToast}">
-    <div>{{ $ctrl.content }}</div>
+    <div ng-bind-html="$ctrl.content"></div>
 </div>
 <div class="modal-footer" ng-hide="$ctrl.isToast">
     <button class="btn btn-primary" type="button" ng-disabled="$ctrl.lock" ng-hide="$ctrl.hideOk" ng-click="$ctrl.ok();">{{ $ctrl.okLabel }}</button>

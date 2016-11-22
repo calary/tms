@@ -12,9 +12,9 @@
     <dt>规则组状态：</dt>
     <dd>{{ $ctrl.data.GroupStatus }}</dd>
     <dt>加入任务时间：</dt>
-    <dd>{{ $ctrl.data.JoinTaskTime | date:"yyyy-MM-dd hh:mm:ss" }}</dd>
+    <dd>{{ $ctrl.data.JoinTaskTime | date2 }}</dd>
     <dt>创建时间：</dt>
-    <dd>{{ $ctrl.data.CreateTime | date:"yyyy-MM-dd hh:mm:ss" }}</dd>
+    <dd>{{ $ctrl.data.CreateTime | date2 }}</dd>
   </dl>  
   <div ng-repeat="ruleType in $ctrl.ruleTypes">
     <div class="panel panel-default" ng-init="ruleType.isCollapsed=false">

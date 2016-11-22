@@ -5,9 +5,11 @@
 <div class="modal-body">
   <div uib-datepicker 
     ng-model="$ctrl.date" 
+    ng-show="$ctrl.showDate"
     datepicker-options="$ctrl.options"></div>
   <div uib-timepicker 
     ng-model="$ctrl.date"
+    ng-show="$ctrl.showTime"
     readonly-input="true"
     show-meridian="false"
     template-url="global/datetime-modal.timepicker.html"
