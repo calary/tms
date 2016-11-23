@@ -1,10 +1,11 @@
 require('./view-rules.css');
 
-controller.$inject = ['$state', 'rulesService'];
-function controller($state, rulesService){
+controller.$inject = ['$state', 'rulesService', 'store'];
+function controller($state, rulesService, store){
   var $ctrl = this;
   $ctrl.data = {};
   $ctrl.ruleTypes = [];
+  $ctrl.store = store;
 
   var rulesId = $state.params.rulesId;
   console.log('enter view-rules');

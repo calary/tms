@@ -134,8 +134,8 @@ function controller($modalService, $state, tasksService, $modalService){
       RuleGroupID: $ctrl.model.RuleGroupID,
       TaskID:      $ctrl.model.TaskID,
       SiteID:      $ctrl.model.SiteID,
-      StartTime:   $ctrl.model.time.min,
-      EndTime:     $ctrl.model.time.max
+      StartDate:   $ctrl.model.time.min,
+      EndDate:     $ctrl.model.time.max
     };
     console.log(data);
     if(isNewTask) {

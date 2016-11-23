@@ -16,8 +16,8 @@ function tasksService($q, $http, apiBaseUrl){
     var data = {
       RuleGroupID: _data.RuleGroupID,
       SiteID:      _data.SiteID,
-      StartTime:   _data.StartTime,
-      EndTime:     _data.EndTime
+      StartDate:   _data.StartDate,
+      EndDate:     _data.EndDate
     };
     return $http.post(apiBaseUrl + '/task/api/task', data);
   }
@@ -25,8 +25,8 @@ function tasksService($q, $http, apiBaseUrl){
   function editTask(_data) {
     var data = {
       HYUniqueID:  _data.TaskID,
-      StartTime:   _data.StartTime,
-      EndTime:     _data.EndTime
+      StartDate:   _data.StartDate,
+      EndDate:     _data.EndDate
     };
     return $http.post(apiBaseUrl + '/task/api/task?method=1', data);
   }

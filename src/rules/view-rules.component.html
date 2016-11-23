@@ -1,5 +1,5 @@
 <div class="view-rules">
-  <div class="clearfix">
+  <div class="clearfix" ng-hide="$ctrl.store.hideEditArea">
     <button class="btn btn-primary pull-right">导出规则组</button>
   </div>
   <dl class="dl-horizontal">
@@ -23,7 +23,7 @@
         <button class="btn btn-link pull-right" ng-click="ruleType.isCollapsed = !ruleType.isCollapsed">
           <span class="glyphicon" ng-class="{'glyphicon-menu-down': ruleType.isCollapsed, 'glyphicon-menu-up': !ruleType.isCollapsed}"></span>
         </button>
-        <button class="btn btn-sm btn-primary pull-right">添加规则</button>
+        <button class="btn btn-sm btn-primary pull-right" ng-hide="$ctrl.store.hideEditArea">添加规则</button>
       </div>
       <div uib-collapse="ruleType.isCollapsed">
         <div class="panel-body">
@@ -34,9 +34,9 @@
                 <td>Tag</td>
                 <td>权重</td>
                 <td>执行次数</td>
-                <td ng-hide="$ctrl.store.hideEditArea">
+                <td>
                   状态
-                  <button class="btn btn-sm btn-primary">保存</button>
+                  <button class="btn btn-sm btn-primary" ng-hide="$ctrl.store.hideEditArea">保存</button>
                 </td>
               </tr>
             </thead>
@@ -46,7 +46,7 @@
                 <td ng-bind-html="row.Tag"></td>
                 <td>{{ row.Weight }}</td>
                 <td>{{ row.ExecCount }}</td>
-                <td ng-hide="$ctrl.store.hideEditArea">
+                <td>
                   {{ row.Status }}
                 </td>
               </tr>
