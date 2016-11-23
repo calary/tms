@@ -91,6 +91,7 @@ function rulesService($q, $http, apiBaseUrl, rulesTypes){
         'Content-Type': undefined
       },
       transformRequest: function(data, headersGetter){
+        console.log(data);
         var formData = new FormData();
         angular.forEach(data, function(value, key){
           formData.append(key, value);

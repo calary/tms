@@ -84,6 +84,10 @@ function ($httpProvider, dateServiceProvider) {
     if(condition(obj)) {
       return callback(obj);
     }
+    // 无视文件
+    if(obj instanceof File) {
+      return obj;
+    }
     if(angular.isObject(obj)) {
       var _obj;
       if(angular.isArray(obj)) {
