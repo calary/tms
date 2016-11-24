@@ -1,24 +1,6 @@
-<form class="form-horizontal" ng-submit="$ctrl.onSubmit()" name="$ctrl.form" novalidate>
-  <div class="clearfix">
-    <button type="button" class="btn btn-default pull-right" ng-click="$ctrl.options.resetModel()">清除规则</button>  
-    <button type="submit" class="btn btn-primary submit-button pull-right" ng-disabled="$ctrl.form.$invalid">保存</button>
-  </div>
-  
-  <formly-form model="$ctrl.model" fields="$ctrl.fields" form="$ctrl.form" options="$ctrl.options">
-  </formly-form>
-</form>
-<pre>{{$ctrl.model | json}}</pre>
-<!-- <pre>{{$ctrl.form | json}}</pre> -->
 
+<xx-table></xx-table>
 
-<ui-select ng-model="$ctrl.selected.value">
-    <ui-select-match>
-        <span ng-bind="$select.selected.name"></span>
-    </ui-select-match>
-    <ui-select-choices repeat="item in ($ctrl.itemArray | filter: $select.search) track by item.id">
-        <span ng-bind="item.name"></span>
-    </ui-select-choices>
-</ui-select>
 
 
 
@@ -30,14 +12,3 @@
   <p>{{ $ctrl.range }}</p>
 </form>
 <button class="btn btn-primary" ng-click="$ctrl.alert()">打开</button>
-
-<h1>原始日期字符串</h1>
-<h1>{{$ctrl.sTimeString}}</h1>
-<h1>date $filter格式化</h1>
-<h1>{{$ctrl.sTimeString | date:"yyyy-MM-dd hh:mm:ss"}}</h1>
-<h1>date2 $filter格式化</h1>
-<h1>{{$ctrl.sTimeString | date2}}</h1>
-<h1>dateString.fromString</h1>
-<h1>{{$ctrl.sTime | date:"yyyy-MM-dd hh:mm:ss"}}</h1>
-<h1>dateString.toString</h1>
-<h1>{{$ctrl.sTimeString2}}</h1>

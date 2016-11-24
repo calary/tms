@@ -32,7 +32,7 @@ function ($httpProvider, dateServiceProvider) {
           return req;
         }
 
-        console.log(req);
+        // console.log(req);
 
         // 转换local time为server time
         req.params = recurse(
@@ -52,6 +52,12 @@ function ($httpProvider, dateServiceProvider) {
         if(!fromApi) {
           return res;
         }
+        // 请求状态码
+        // var resStatus = res.status;
+        // if(resStatus !== 200) {
+          // throw new Error(resStatus);
+          // return $q.reject(new Error(resStatus));
+        // }
 
         var data = res.data;
         var status = data && data.Status;
@@ -61,7 +67,7 @@ function ($httpProvider, dateServiceProvider) {
         if(status == 1) {
 
           // 转换server time为local time
-          console.log(_data);
+          // console.log(_data);
           _data = recurse(
             _data, 
             dateService.isDateString, 

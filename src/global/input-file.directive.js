@@ -1,4 +1,4 @@
-require('./x-input-file.directive.css');
+require('./input-file.directive.css');
 
 function resetInput(input){
   var form = document.createElement('form');

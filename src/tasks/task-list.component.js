@@ -87,8 +87,79 @@ function controller(tasksService, rulesTypes, taskStatus, store){
     }
   ];
 
-  filter();
+  // xx-table配置
+  $ctrl.tableConfig = {
+    data: [],
+    getData: getData,
+    columns: [
+      {
+        head: 'site ID/广告ID',
+        data: '{{ row.SiteID }}'
+      }, {
+        head: '规则组名称',
+        data: '{{ row.RuleGroupName }}'
+      }, {
+        head: '规则组类型',
+        data: '{{ row.RuleGroupType }}'
+      }, {
+        head: '开始时间',
+        data: '{{ row.StartDate | date2 }}'
+      }, {
+        head: '结束时间',
+        data: '{{ row.EndDate | date2 }}'
+      }, {
+        head: '状态',
+        data: '{{ handleStatus(row.Status) }}'
+      }, {
+        head: '任务进度',
+        data: '<div class="text-center">22%</div>' +
+          '<uib-progressbar value="22"></uib-progressbar>'
+      }, {
+        head: '创建时间',
+        data: '{{ row.CreateTime | date2 }}'
+      }, {
+        head: '操作<button>哇</button>',
+        data: '<a ui-sref="editTask({taskId: row.TaskID})">编辑任务时间</a>'
+      }
+    ],
+    methods: {
+      getStatusTitle: getStatusTitle
+    }
+  };
+  $ctrl.onTableInit = onTableInit;
 
+  function getData(){
+    var timeOption = $ctrl.model.timeOption;
+    var time = $ctrl.model.time || {};
+    var params = {
+      siteid: $ctrl.model.siteid,
+      rulegroupname: $ctrl.model.rulegroupname,
+      rulegrouptype: $ctrl.model.rulegrouptype,
+      status: $ctrl.model.status,
+      startdate: timeOption == 0 && time.min || null,
+      startdate1: timeOption == 0 && time.max || null,
+      enddate: timeOption == 1 && time.min || null,
+      enddate1: timeOption == 1 && time.max || null
+    };
+
+    return tasksService.getTasks(params);
+  }
+  function onTableInit(update){
+    console.log('on table init');
+    $ctrl.update = update;
+    update();
+  }
+  function getStatusTitle(_status){
+    var status = taskStatus.find(function(status){
+      return status.id == _status;
+    });
+    if(status) {
+      return status.title;
+    }
+    return '';
+  }
+
+  filter();
   function filter(){
     var timeOption = $ctrl.model.timeOption;
     var time = $ctrl.model.time || {};

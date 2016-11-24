@@ -42,7 +42,9 @@
             </thead>
             <tbody>
               <tr ng-repeat="row in ruleType.rules">
-                <td>{{ row.Key }}</td>
+                <td>
+                  <span uib-tooltip-html="row.Tips">{{ row.Key }}</span>
+                </td>
                 <td ng-bind-html="row.Tag"></td>
                 <td>{{ row.Weight }}</td>
                 <td>{{ row.ExecCount }}</td>
