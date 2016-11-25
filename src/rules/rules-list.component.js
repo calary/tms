@@ -19,7 +19,7 @@ function controller(rulesService, store){
   function getRules(status, index){
     rulesService.getRules({ Status: status })
     .then(function(data){
-      $ctrl.data[index] = data && data.Data || [];
+      $ctrl.data[index] = data || [];
     });
   }
 }

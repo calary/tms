@@ -12,7 +12,6 @@ html {
   height: 100%;
 }
 body {
-  font-size: 14px;
   overflow-x: hidden;
   height: 100%;
 }
@@ -32,10 +31,11 @@ app {
 .page-title {
   margin: 0 0 0 -15px;
   padding: 0 15px;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: bold;
   height: 48px;
   line-height: 48px;
-  border-bottom: 1px solid #ddd;
+  /*border-bottom: 1px solid #ddd;*/
 }
 .app-main-nav {
   position: absolute;
@@ -43,40 +43,73 @@ app {
   top: 0;
   width: 130px;
   min-height: 100%;
-  padding-left: 15px;
+  padding-left: 0;
   padding-right: 0;
-  background-color: #eee;
-  text-align: right;
+  background-color: #2b3746;
+  /*text-align: right;*/
 }
 .app-main-content {
   margin-left: 130px;
   padding-left: 15px;
+  padding-bottom: 10px;
 }
 
 .app-main-nav .page-title {
-  border-bottom-color: #ccc;
+  margin-left: 0;
+  padding-left: 15px;
+  color: #21ab38;
+  /*border-bottom-color: #000;*/
 }
 .app-main-nav .nav {
   padding-top: 10px;
 }
 .app-main-nav .nav-pills > li > a {
-  color: #000;
+  color: #fff;
+  opacity: 0.7;
   white-space: nowrap; 
   transition: .3s ease-in-out;
 }
 .app-main-nav .nav-pills > li > a:hover {
-  color: #000;
-  background-color: #fff;
+  color: #fff;
+  opacity: 1;
+  background-color: #1e2937;
 }
 .app-main-nav .nav-pills > li.active > a {
-  color: #000;
-  background-color: #fff;
+  color: #fff;
+  opacity: 1;
+  background-color: #1e2937;
+  font-weight: bold;
 }
 .app-ui-view {
   display: block;
-  padding-top: 15px;
+  /*padding-top: 15px;*/
 }
 
+/* 覆盖bootsrap */
+body {
+  color: #2b3746;
+  font-size: 14px;
+  font-family: Microsoft YaHei;
+  background-color: #f5f6f9;
+}
+a {
+  color: #21ab38;
+}
+.well {
+  background-color: #fff;
+}
+table {
+  background-color: #fff;
+  margin-bottom: 0;
+}
+.btn-success {
+  background-color: #21ab38;
+}
+.panel-default>.panel-heading {
+  color: #2b3746;
+  border: 0 none;
+  background-color: transparent;
+}
 
 /* 通用 */
 .hr {
@@ -117,10 +150,6 @@ app {
 /* panel-heading的button */
 .panel-heading .btn {
   margin-top: -5px;
-}
-table .btn {
-  margin-top: -10px;
-  margin-bottom: -8px;
 }
 
 /* 弹窗下的横版表单，修改尺寸*/

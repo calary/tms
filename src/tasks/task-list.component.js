@@ -3,9 +3,10 @@ require('./task-list.component.css');
 controller.$inject = ['tasksService', 'rulesTypes', 'taskStatus', 'store'];
 function controller(tasksService, rulesTypes, taskStatus, store){
   var $ctrl = this;
-  $ctrl.data = [];
-  $ctrl.filter = filter;
   $ctrl.store = store;
+  $ctrl.data = [];
+  $ctrl.update = null; // 等xx-table初始化后填充
+  // $ctrl.filter = filter;
 
   var _taskStatus = taskStatus.slice(0, -1); // 去掉未加入任务
 
@@ -159,35 +160,35 @@ function controller(tasksService, rulesTypes, taskStatus, store){
     return '';
   }
 
-  filter();
-  function filter(){
-    var timeOption = $ctrl.model.timeOption;
-    var time = $ctrl.model.time || {};
-    var params = {
-      siteid: $ctrl.model.siteid,
-      rulegroupname: $ctrl.model.rulegroupname,
-      rulegrouptype: $ctrl.model.rulegrouptype,
-      status: $ctrl.model.status,
-      startdate: timeOption == 0 && time.min || null,
-      startdate1: timeOption == 0 && time.max || null,
-      enddate: timeOption == 1 && time.min || null,
-      enddate1: timeOption == 1 && time.max || null
-    };
+  // filter();
+  // function filter(){
+  //   var timeOption = $ctrl.model.timeOption;
+  //   var time = $ctrl.model.time || {};
+  //   var params = {
+  //     siteid: $ctrl.model.siteid,
+  //     rulegroupname: $ctrl.model.rulegroupname,
+  //     rulegrouptype: $ctrl.model.rulegrouptype,
+  //     status: $ctrl.model.status,
+  //     startdate: timeOption == 0 && time.min || null,
+  //     startdate1: timeOption == 0 && time.max || null,
+  //     enddate: timeOption == 1 && time.min || null,
+  //     enddate1: timeOption == 1 && time.max || null
+  //   };
 
-    tasksService.getTasks(params).then(function(data){
-      $ctrl.data = data && data.Data || [];
-      $ctrl.data.forEach(function(row){
-        var status = taskStatus.find(function(status){
-          return status.id == row.Status;
-        });
-        if(status) {
-          row.StatusTitle = status.title;
-        }
-      });
-    }, function(reason){
-      console.log(reason);
-    });
-  }
+  //   tasksService.getTasks(params).then(function(data){
+  //     $ctrl.data = data || [];
+  //     $ctrl.data.forEach(function(row){
+  //       var status = taskStatus.find(function(status){
+  //         return status.id == row.Status;
+  //       });
+  //       if(status) {
+  //         row.StatusTitle = status.title;
+  //       }
+  //     });
+  //   }, function(reason){
+  //     console.log(reason);
+  //   });
+  // }
 }
 
 module.exports = {

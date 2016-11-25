@@ -1,31 +1,35 @@
-<h1>{{ status }}</h1>
-<h1>{{ data.length }}</h1>
-<table class="table table-bordered table-hover">
-  <thead class="bg-default">
-    <tr>
-      <td 
-        ng-repeat="column in columns"
-        xx-bind-html="column.head"
-      ></td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="row in data track by $index" ng-show="status==3">
-      <td 
-        ng-repeat="column in columns"
-        xx-bind-html="column.data"
-      ></td>
-    </tr>
-    <tr>
-      <td colspan="{{columns.length}}" ng-show="status==1" class="text-center">请求中…</td>
-      <td colspan="{{columns.length}}" ng-show="status==2" class="text-center">
-        请求失败，错误{{ error }}
-        <button class="btn btn-link btn-sm" ng-click="getData()">
-          <span class="glyphicon glyphicon-repeat"></span>
-          重新请求
-        </button>
-      </td>
-      <td colspan="{{columns.length}}" ng-show="status==3&&data.length==0" class="text-center">空</td>
-    </tr>
-  </tbody>
-</table>  
+<div class="xx-table">
+  <table class="table table-bordered table-hover">
+    <thead class="bg-default">
+      <tr>
+        <td 
+          ng-repeat="column in columns"
+          xx-bind-html="column.head"
+        ></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-show="status==3&&data.length==0">
+        <td colspan="{{columns.length}}" class="text-center">空</td>
+      </tr>
+      <tr ng-repeat="row in data track by $index">
+        <td 
+          ng-repeat="column in columns"
+          xx-bind-html="column.data"
+        ></td>
+      </tr>
+    </tbody>
+  </table> 
+  <div class="xx-table-tips" ng-if="status!==3">
+    <div class="xx-table-tip" ng-show="status==1">
+      请求中…
+    </div>
+    <div class="xx-table-tip" ng-show="status==2">
+      请求失败，{{ error }}
+      <button class="btn btn-link btn-sm" ng-click="update()">
+        <span class="glyphicon glyphicon-repeat"></span>
+        重新请求
+      </button>
+    </div>
+  </div>   
+</div>

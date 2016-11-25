@@ -1,3 +1,5 @@
+require('./xx-table.directive.css');
+
 // data: '=',    // 数据
 // columns: '=', // 列的配置
 // methods: '=', // 为独立作用域注入一些方法
@@ -54,7 +56,6 @@ function directive($timeout, $q){
         } else {
           $scope.status = 1;
           res.then(function(data){
-            console.log(data);
             console.log('res then succ', curReqCount, reqCount)
             // 请求去重
             if(curReqCount !== reqCount) {
@@ -63,11 +64,17 @@ function directive($timeout, $q){
             $scope.status = 3;
             $scope.data = data;
           }, function(error){
+            console.log(error, curReqCount, reqCount);
             if(curReqCount !== reqCount) {
               return;
             }
+            // 是否已经离线
+            if(error && error.status === -1) {
+              $scope.error = '您已离线';
+            } else {
+              $scope.error = '错误' + error;
+            }
             $scope.status = 2;
-            $scope.error = error;
           });    
         }
       }

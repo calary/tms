@@ -3,7 +3,7 @@ function controller($state, rulesService){
   var $ctrl = this;
 
   rulesService.getRules({ Status: 1 }).then(function(data){
-    $ctrl.data = data && data.Data || [];
+    $ctrl.data = data || [];
     if($state.is('viewRulesList')) {
       $state.go('viewRules', { 
         rulesId: $ctrl.data[0].RuleGroupID

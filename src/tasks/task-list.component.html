@@ -4,14 +4,14 @@
     <form class="form-horizontal" name="$ctrl.form" novalidate>
       <formly-form model="$ctrl.model" fields="$ctrl.fields" form="$ctrl.form" options="$ctrl.options">
       </formly-form>
-      <button class="btn btn-primary" ng-click="$ctrl.filter()">筛选</button>
+      <button class="btn btn-success" ng-click="$ctrl.update()">筛选</button>
       <button class="btn btn-default" ng-click="$ctrl.options.resetModel()">重置</button>  
     </form>
     <!-- <div>{{ $ctrl.model | json }}</div> -->
   </div>
-  <p><a ui-sref="newTask" class="btn btn-primary">新建任务</a></p>
+  <p><a ui-sref="newTask" class="btn btn-success">新建任务</a></p>
   <!-- 任务列表 -->
-  <table class="table table-bordered table-hover">
+<!--   <table class="table table-bordered table-hover">
     <thead class="bg-default">
       <tr>
         <td>site ID/广告ID</td>
@@ -53,7 +53,7 @@
     </tbody>
   </table> 
 
-  <div class="hr"></div>
+  <div class="hr"></div> -->
   <xx-table config="$ctrl.tableConfig" on-init="$ctrl.onTableInit(update)"></xx-table>
 <!--   <div ng-init="bigTotalItems=175;bigCurrentPage=1;maxSize=3;"></div>
   <ul uib-pagination 

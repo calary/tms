@@ -36,7 +36,7 @@ function controller($modalService, $state, tasksService, $modalService){
             // RuleGroupType
             // 1.如选择的标签规则组类型是呼叫中心或社会化媒体
             // 则隐藏输入site ID/广告ID一项。
-            rulesOptions = data && data.Data || [];
+            rulesOptions = data || [];
 
             $scope.to.options = rulesOptions;
             if(rulesOptions.length) {
@@ -85,43 +85,40 @@ function controller($modalService, $state, tasksService, $modalService){
   } else {
     tasksService.getTasks({HYUniqueid: $state.params.taskId})
     .then(function(data){
-      console.log(data);
-      if(data && data.Data && data.Data.length) {
-        var _data = data.Data[0];
-        $ctrl.data = _data;
-        $ctrl.model = {
-          TaskID: _data.TaskID,
-          time: {
-            min: _data.StartDate,
-            max: _data.EndDate
+      var _data = data && data.length ? data[0] : {};
+      $ctrl.data = _data;
+      $ctrl.model = {
+        TaskID: _data.TaskID,
+        time: {
+          min: _data.StartDate,
+          max: _data.EndDate
+        }
+      };
+      $ctrl.fields = [
+        {
+          type: 'static2',
+          templateOptions: {
+            label: '标签规则组',
+            text: _data.RuleGroupName
           }
-        };
-        $ctrl.fields = [
-          {
-            type: 'static2',
-            templateOptions: {
-              label: '标签规则组',
-              text: _data.RuleGroupName
-            }
-          }, 
-          {
-            type: 'static2',
-            hideExpression: '!model.SiteID',
-            templateOptions: {
-              label: 'site ID/广告ID',
-              text: _data.SiteID
-            }
-          },
-          {
-            key: 'time',
-            type: 'timeRange2',
-            templateOptions: {
-              label: '设置任务周期',
-              required: true
-            }
+        }, 
+        {
+          type: 'static2',
+          hideExpression: '!model.SiteID',
+          templateOptions: {
+            label: 'site ID/广告ID',
+            text: _data.SiteID
           }
-        ];
-      }
+        },
+        {
+          key: 'time',
+          type: 'timeRange2',
+          templateOptions: {
+            label: '设置任务周期',
+            required: true
+          }
+        }
+      ];
     });
   }
 
@@ -139,7 +136,7 @@ function controller($modalService, $state, tasksService, $modalService){
     };
     console.log(data);
     if(isNewTask) {
-      tasksService.createTask(data).then(function(data){
+      return tasksService.createTask(data).then(function(data){
         $modalService.alert({
           content: '创建成功', 
           hideCancel: true
@@ -148,7 +145,7 @@ function controller($modalService, $state, tasksService, $modalService){
         $modalService.alert({content: reason});
       });  
     } else {
-      tasksService.editTask(data).then(function(data){
+      return tasksService.editTask(data).then(function(data){
         $modalService.alert({
           content: '修改成功', 
           hideCancel: true

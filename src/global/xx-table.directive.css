@@ -1,0 +1,45 @@
+.xx-table {
+  position: relative;
+  min-height: 82px;
+}
+.xx-table .btn {
+  margin-top: -10px;
+  margin-bottom: -8px;
+}
+.xx-table-tips {
+  opacity: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ddd;
+  transition: all linear .3s .6s;
+}
+.xx-table-tip {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  transformY: -50%;
+}
+.xx-table-tips.ng-enter,
+.xx-table-tips.ng-leave-active {
+  opacity: 0;
+}
+/*.xx-table-tips.ng-enter-active,
+.xx-table-tips.ng-leave {
+  opacity: 1;
+}
+
+
+.xx-table-tips.ng-enter,
+.xx-table-tips.ng-leave-active {
+  opacity: 0;
+}
+.xx-table-tips.ng-enter-active,
+.xx-table-tips.ng-leave {
+  opacity: 1;
+}*/

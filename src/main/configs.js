@@ -49,9 +49,11 @@ function ($httpProvider, dateServiceProvider) {
       'response': function(res) {
         var fromApi = /^http/.test(res.config.url);
 
+        // console.log(res);
         if(!fromApi) {
           return res;
         }
+
         // 请求状态码
         // var resStatus = res.status;
         // if(resStatus !== 200) {
@@ -72,6 +74,15 @@ function ($httpProvider, dateServiceProvider) {
             _data, 
             dateService.isDateString, 
             dateService.fromString);
+
+          // 列表接口还有一层嵌套的Data
+          var __data = _data.Data;
+          if(angular.isArray(__data)) {
+            if(_data.hasOwnProperty('count')) {
+              __data.count = _data.count;
+            }
+            _data = __data;
+          }
 
           _data.Information = information;
           return $q.resolve(_data);
