@@ -17,6 +17,8 @@ function directive(){
 	return {
 		retrict: 'AE',
 		scope: {
+      disabled: '=',
+      accept: '@',
 			onChange: '&'
 		},
 		transclude: true,
@@ -28,6 +30,7 @@ function directive(){
 			var $input = $ele.find('input');
       // console.log('ere');
 			$input.bind('change', onChange);
+      $input.attr('accept', $scope.accept || '*');
 
 			function onChange(e) {
 				var files = e.target.files;

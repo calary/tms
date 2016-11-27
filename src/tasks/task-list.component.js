@@ -91,6 +91,7 @@ function controller(tasksService, rulesTypes, taskStatus, store){
   // xx-table配置
   $ctrl.tableConfig = {
     data: [],
+    firstUpdate: true,
     getData: getData,
     columns: [
       {
@@ -110,8 +111,9 @@ function controller(tasksService, rulesTypes, taskStatus, store){
         data: '{{ row.EndDate | date2 }}'
       }, {
         head: '状态',
-        data: '{{ handleStatus(row.Status) }}'
+        data: '{{ methods.getStatusTitle(row.Status) }}'
       }, {
+        hide: store.hideEditArea,
         head: '任务进度',
         data: '<div class="text-center">22%</div>' +
           '<uib-progressbar value="22"></uib-progressbar>'
@@ -119,7 +121,7 @@ function controller(tasksService, rulesTypes, taskStatus, store){
         head: '创建时间',
         data: '{{ row.CreateTime | date2 }}'
       }, {
-        head: '操作<button>哇</button>',
+        head: '操作',
         data: '<a ui-sref="editTask({taskId: row.TaskID})">编辑任务时间</a>'
       }
     ],
@@ -148,7 +150,6 @@ function controller(tasksService, rulesTypes, taskStatus, store){
   function onTableInit(update){
     console.log('on table init');
     $ctrl.update = update;
-    update();
   }
   function getStatusTitle(_status){
     var status = taskStatus.find(function(status){

@@ -1,9 +1,10 @@
 require('./xx-table.directive.css');
 
-// data: '=',    // 数据
-// columns: '=', // 列的配置
-// methods: '=', // 为独立作用域注入一些方法
-// getData: '&'  // 由本指令来请求数据
+// data: []   // 数据
+// firstUpdate: bool 是否初次调用
+// columns // 列的配置
+// methods // 为独立作用域注入一些方法
+// getData  // 由本指令来请求数据
 
 directive.$inject = ['$timeout', '$q'];
 function directive($timeout, $q){
@@ -33,11 +34,18 @@ function directive($timeout, $q){
 
       function init(){
         var config = $scope.config || {};
+        // console.log(config);
         $scope.data = config.data || [];
         $scope.columns = config.columns || [];
         $scope.methods = config.methods || {};
         $scope.update = update;
         $scope.onInit({ update: update });
+        if('data' in config) {
+          $scope.status = 3;
+        }
+        if(config.firstUpdate) {
+          update();
+        }
       }
 
 
@@ -55,14 +63,14 @@ function directive($timeout, $q){
           $scope.data = res;
         } else {
           $scope.status = 1;
-          res.then(function(data){
+          $q.all([res, timeout()]).then(function(data){
             console.log('res then succ', curReqCount, reqCount)
             // 请求去重
             if(curReqCount !== reqCount) {
               return;
             }
             $scope.status = 3;
-            $scope.data = data;
+            $scope.data = data[0];
           }, function(error){
             console.log(error, curReqCount, reqCount);
             if(curReqCount !== reqCount) {
@@ -77,6 +85,12 @@ function directive($timeout, $q){
             $scope.status = 2;
           });    
         }
+      }
+
+      function timeout(){
+        return $timeout(function(){
+          console.log('at least 300ms');
+        }, 300);
       }
 		}
 	};

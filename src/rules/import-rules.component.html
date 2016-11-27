@@ -7,7 +7,7 @@
   </p>
   <!-- 直接选择文件 -->
   <p>
-    <input-file class="btn btn-primary" on-change="$ctrl.selectFile(file)"> 
+    <input-file class="btn btn-primary" on-change="$ctrl.selectFile(file)" accept=".xls,.xlsx" ng-disabled="$ctrl.uploading"> 
       选择文件
     </input-file>
   </p>

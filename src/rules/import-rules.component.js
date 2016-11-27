@@ -10,6 +10,9 @@ function controller($uibModal, rulesService){
   $ctrl.uploading = false;
 
   function selectFile(file){
+    if($ctrl.uploading) {
+      return;
+    }
     $ctrl.errMsg = '';
     $ctrl.succMsg = '';
     $ctrl.uploading = true;

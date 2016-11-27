@@ -5,31 +5,29 @@
         <td 
           ng-repeat="column in columns"
           xx-bind-html="column.head"
+          ng-hide="column.hide"
         ></td>
       </tr>
     </thead>
     <tbody>
-      <tr ng-show="status==3&&data.length==0">
-        <td colspan="{{columns.length}}" class="text-center">空</td>
+      <tr class="xx-table-tip" ng-show="status!==3||data.length==0">
+        <td ng-show="status==1" colspan="{{columns.length}}" class="text-center">请求中…</td>
+        <td ng-show="status==2"  colspan="{{columns.length}}" class="text-center">
+          请求失败，{{ error }}
+          <button class="btn btn-link btn-sm" ng-click="update()">
+            <span class="glyphicon glyphicon-repeat"></span>
+            重新请求
+          </button>
+        </td>
+        <td ng-show="status==3&&data.length==0" colspan="{{columns.length}}" class="text-center">空</td>
       </tr>
       <tr ng-repeat="row in data track by $index">
         <td 
           ng-repeat="column in columns"
           xx-bind-html="column.data"
+          ng-hide="column.hide"
         ></td>
       </tr>
     </tbody>
   </table> 
-  <div class="xx-table-tips" ng-if="status!==3">
-    <div class="xx-table-tip" ng-show="status==1">
-      请求中…
-    </div>
-    <div class="xx-table-tip" ng-show="status==2">
-      请求失败，{{ error }}
-      <button class="btn btn-link btn-sm" ng-click="update()">
-        <span class="glyphicon glyphicon-repeat"></span>
-        重新请求
-      </button>
-    </div>
-  </div>   
 </div>

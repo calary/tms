@@ -10,6 +10,33 @@ function controller($state, rulesService, store){
   var rulesId = $state.params.rulesId;
   console.log('enter view-rules');
 
+  // xx-table配置
+  var baseTableConfig = {
+    data: [],
+    columns: [
+      {
+        head: 'Key',
+        data: '<span uib-tooltip-html="row.Tips">{{ row.Key }}</span>'
+      }, {
+        head: 'Tag',
+        data: '<div ng-bind-html="row.Tag"></div>'
+      }, {
+        head: '权重',
+        data: '{{ row.Weight }}'
+      }, {
+        head: '执行次数',
+        data: '{{ row.ExecCount }}'
+      }, {
+        head: '加入任务时间',
+        data: '{{ row.CreateTaskTime | date2 }}'
+      }, {
+        hide: store.hideEditArea,
+        head: '状态 <button class="btn btn-sm btn-success" ng-hide="$ctrl.store.hideEditArea">保存</button>',
+        data: '{{ row.Status }}'
+      }
+    ]
+  };
+
   getRule();
   function getRule(){
     rulesService.getRule(rulesId).then(function(data){
@@ -26,10 +53,15 @@ function controller($state, rulesService, store){
             // type.rules = module.Content;
           }
         });
+
+        $ctrl.tableConfigs = $ctrl.ruleTypes.map(function(type, index){
+          return angular.extend({}, baseTableConfig, {
+            data: type.rules || []
+          });
+        });
       }
     });
   }
-
 }
 
 module.exports = {

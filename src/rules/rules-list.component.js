@@ -12,15 +12,46 @@ function controller(rulesService, store){
     { id: 4, title: '未加入任务' }
   ];
 
+  // xx-table配置
+  var baseTableConfig = {
+    data: [],
+    firstUpdate: true,
+    columns: [
+      {
+        head: 'site ID/广告ID',
+        data: '{{ row.SiteID }}'
+      }, {
+        head: '规则组名称',
+        data: '{{ row.RuleGroupName }}'
+      }, {
+        head: '规则组类型',
+        data: '{{ row.RuleGroupType }}'
+      }, {
+        head: '创建时间',
+        data: '{{ row.CreateTime | date2 }}'
+      }, {
+        head: '加入任务时间',
+        data: '{{ row.CreateTaskTime | date2 }}'
+      }, {
+        hide: store.hideEditArea,
+        head: ' ',
+        data: '<a href="">复制规则组</a><br><a href="">导入规则组</a>'
+      }
+    ]
+  };
+  $ctrl.tableConfigs = [];
+
   $ctrl.rulesTitles.forEach(function(rules, index){
-    getRules(rules.id, index);
+    var getData = createGetData(rules.id, index);
+    $ctrl.tableConfigs[index] = angular.extend({}, baseTableConfig, {
+      getData: getData
+    });
   });
 
-  function getRules(status, index){
-    rulesService.getRules({ Status: status })
-    .then(function(data){
-      $ctrl.data[index] = data || [];
-    });
+  function createGetData(status, index){
+    return function(){
+      return rulesService.getRules({ Status: status });
+    };
   }
 }
 

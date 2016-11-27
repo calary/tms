@@ -151,6 +151,9 @@ function controller($modalService, $state, tasksService, $modalService){
           hideCancel: true
         }).then(gotoList);
       }, function(reason){
+        if(reason && reason.status == -1) {
+          reason = '您已离线';
+        }
         $modalService.alert({content: reason});
       });  
     }

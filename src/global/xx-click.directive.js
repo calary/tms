@@ -12,14 +12,16 @@ function directive($timeout, $q){
         if(disabled) {
           return;
         }
-        disabled = true;
-        $ele.attr('disabled', true);
         var rtn = $scope.$apply($attr.xxClick);
-        $q.when(rtn).finally(function(){
-          disabled = false; 
-          $ele.attr('disabled', false);
-        });
-
+        var isPromise = !!(rtn && rtn.then);
+        if(isPromise) {
+          $ele.attr('disabled', true);
+          disabled = true;
+          $q.when(rtn).finally(function(){
+            disabled = false; 
+            $ele.attr('disabled', false);
+          });  
+        }
       }
 		}
 	};

@@ -10,3 +10,6 @@ input-file input[type="file"] {
   height: 100%;
   opacity: 0;
 }
+input-file[disabled] input[type="file"]{
+  display: none;
+}
