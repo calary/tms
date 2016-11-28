@@ -1,5 +1,5 @@
 <div class="view-rules">
-  <div class="clearfix" ng-hide="$ctrl.store.hideEditArea">
+  <div class="clearfix">
     <button class="btn btn-success pull-right">导出规则组</button>
   </div>
   <dl class="dl-horizontal">
@@ -17,7 +17,7 @@
     <dd>{{ $ctrl.data.CreateTime | date2 }}</dd>
   </dl>  
   <div ng-repeat="ruleType in $ctrl.ruleTypes">
-    <div class="panel panel-default" ng-init="ruleType.isCollapsed=false">
+    <div class="panel panel-default" ng-init="ruleType.isCollapsed=false" ng-show="ruleType.rules.length">
       <div class="panel-heading">
         {{ ruleType.title }}
         <button class="btn btn-link pull-right" ng-click="ruleType.isCollapsed = !ruleType.isCollapsed">

@@ -1,6 +1,7 @@
 // 全局常量
 exports.store = {
-   hideEditArea: true
+  hideEditArea: true,
+  viewRulesNav: false
 };
 exports.apiBaseUrl = 'http://dmp.arlakitchen.com';
 

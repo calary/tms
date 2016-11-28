@@ -110,6 +110,9 @@ table {
   border: 0 none;
   background-color: transparent;
 }
+table .progress {
+  margin-bottom: 0;
+}
 
 /* 通用 */
 .hr {

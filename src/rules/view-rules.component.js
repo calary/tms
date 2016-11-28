@@ -27,9 +27,6 @@ function controller($state, rulesService, store){
         head: '执行次数',
         data: '{{ row.ExecCount }}'
       }, {
-        head: '加入任务时间',
-        data: '{{ row.CreateTaskTime | date2 }}'
-      }, {
         hide: store.hideEditArea,
         head: '状态 <button class="btn btn-sm btn-success" ng-hide="$ctrl.store.hideEditArea">保存</button>',
         data: '{{ row.Status }}'
@@ -42,6 +39,8 @@ function controller($state, rulesService, store){
     rulesService.getRule(rulesId).then(function(data){
       if(data) {
         $ctrl.data = data;
+        store.viewRulesType = data.GroupStatus == '已加入任务' ? 1 : 4;
+
         $ctrl.ruleTypes = rulesService.getRuleTypes(data.GroupType);
         (data.Module || []).forEach(function(module){
           var type = $ctrl.ruleTypes.find(function(type){

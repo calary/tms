@@ -116,7 +116,7 @@ function controller(tasksService, rulesTypes, taskStatus, store){
         // hide: store.hideEditArea,
         head: '任务进度',
         data: '<div class="text-center">{{methods.getPercent(row.Percentage)}}%</div>' +
-          '<uib-progressbar value="methods.getPercent(row.Percentage)" type="success"></uib-progressbar>'
+          '<uib-progressbar value="{{methods.getPercent(row.Percentage)}}" type="success"></uib-progressbar>'
       }, {
         head: '创建时间',
         data: '{{ row.CreateTime | date2 }}'

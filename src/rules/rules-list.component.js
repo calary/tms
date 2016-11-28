@@ -22,7 +22,7 @@ function controller(rulesService, store){
         data: '{{ row.SiteID }}'
       }, {
         head: '规则组名称',
-        data: '{{ row.RuleGroupName }}'
+        data: '<a ui-sref="viewRules({rulesId: row.RuleGroupID})">{{ row.RuleGroupName }}</a>'
       }, {
         head: '规则组类型',
         data: '{{ row.RuleGroupType }}'
@@ -31,7 +31,7 @@ function controller(rulesService, store){
         data: '{{ row.CreateTime | date2 }}'
       }, {
         head: '加入任务时间',
-        data: '{{ row.CreateTaskTime | date2 }}'
+        data: '{{ row.JoinTaskTime | date2 }}'
       }, {
         hide: store.hideEditArea,
         head: ' ',

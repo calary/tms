@@ -1,8 +1,10 @@
 require('./xx-table.directive.css');
 
 // data: []   // 数据
-// firstUpdate: bool 是否初次调用
+// firstUpdate // 是否初次自动调用update
 // columns // 列的配置
+//   head // th的模板
+//   data // td的模板
 // methods // 为独立作用域注入一些方法
 // getData  // 由本指令来请求数据
 
