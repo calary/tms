@@ -11,38 +11,38 @@ exports.rulesTypes = [
     id: '网站', 
     title: '网站',
     types: [
-      { id: 1, title: '页面' },
-      { id: 2, title: '点击' },
-      { id: 3, title: '订单' },
-      { id: 4, title: '购物车' },
-      { id: 5, title: '微信' },
-      { id: 6, title: '会员积分' },
-      { id: 7, title: '搜索' },
-      { id: 8, title: '活动' },
-      { id: 9, title: '优惠券' },
-      { id: 10, title: '中奖' },
-      { id: 11, title: '关联型' }
+      { id: 101, title: '页面' },
+      { id: 102, title: '点击' },
+      { id: 103, title: '订单' },
+      { id: 104, title: '购物车' },
+      { id: 105, title: '微信' },
+      { id: 106, title: '会员积分' },
+      { id: 107, title: '搜索' },
+      { id: 108, title: '活动' },
+      { id: 109, title: '优惠券' },
+      { id: 110, title: '中奖' },
+      { id: 111, title: '关联型' }
     ] 
   },
   { 
     id: '广告', 
     title: '广告',
     types: [
-      { id: 1, title: '广告主题/特征' },
-      { id: 2, title: '广告曝光量' },
-      { id: 3, title: '广告点击量' },
-      { id: 4, title: '广告投放媒体' }
+      { id: 201, title: '广告主题/特征' },
+      { id: 202, title: '广告曝光量' },
+      { id: 203, title: '广告点击量' },
+      { id: 204, title: '广告投放媒体' }
     ]
   },
   { 
     id: '呼叫中心', 
     title: '呼叫中心',
     types: [
-      { id: 1, title: '电话归属地' },
-      { id: 2, title: '呼入手机号' },
-      { id: 3, title: '呼入手机号运营商' },
-      { id: 4, title: '呼入时段' },
-      { id: 5, title: '呼叫内容关键字' }
+      { id: 301, title: '电话归属地' },
+      { id: 302, title: '呼入手机号' },
+      { id: 303, title: '呼入手机号运营商' },
+      { id: 304, title: '呼入时段' },
+      { id: 305, title: '呼叫内容关键字' }
     ] 
   },
   { 

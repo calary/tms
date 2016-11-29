@@ -122,7 +122,7 @@ function controller(tasksService, rulesTypes, taskStatus, store){
         data: '{{ row.CreateTime | date2 }}'
       }, {
         head: '操作',
-        data: '<a ui-sref="editTask({taskId: row.TaskID})">编辑任务时间</a>'
+        data: '<a ui-sref="editTask({taskId: row.TaskID})" ng-show="row.Status==0||row.Status==2">编辑任务时间</a>'
       }
     ],
     methods: {

@@ -9,6 +9,13 @@ function controller($state, rulesService){
   
   getRule();
   function getRule(){
+    $ctrl.ruleTypes = rulesService.getRuleTypes('网站');
+    if($state.is('newRuleList') && $ctrl.ruleTypes.length) {
+      $state.go('newRule', { ruleType: $ctrl.ruleTypes[0].id });
+    }
+    return;
+
+
     rulesService.getRule(rulesId).then(function(data){
       if(data) {
 

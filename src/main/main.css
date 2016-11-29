@@ -23,6 +23,9 @@ app {
   display: block;
   height: 100%;
 }
+ui-view, ui-view > * {
+  display: block;
+}
 
 .app-main {
   position: relative;
@@ -41,7 +44,7 @@ app {
   position: absolute;
   left: 0;
   top: 0;
-  width: 130px;
+  width: 115px;
   min-height: 100%;
   padding-left: 0;
   padding-right: 0;
@@ -49,7 +52,7 @@ app {
   /*text-align: right;*/
 }
 .app-main-content {
-  margin-left: 130px;
+  margin-left: 115px;
   padding-left: 15px;
   padding-bottom: 10px;
 }

@@ -22,7 +22,7 @@ function controller($state, rulesService, store){
         data: '<div ng-bind-html="row.Tag"></div>'
       }, {
         head: '权重',
-        data: '{{ row.Weight }}'
+        data: '<div ng-bind-html="row.Weight"></div>'
       }, {
         head: '执行次数',
         data: '{{ row.ExecCount }}'

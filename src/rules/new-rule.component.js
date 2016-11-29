@@ -1,6 +1,11 @@
 require('./new-rule.css');
 
-controller.$inject = ['ruleTypes'];
+var types = {
+  101: require('./fields/101.js')
+};
+
+
+controller.$inject = ['ruleTypes', '$state'];
 function controller(ruleTypes){
   var $ctrl = this;
   $ctrl.ruleTypes = ruleTypes;
@@ -11,21 +16,9 @@ function controller(ruleTypes){
   $ctrl.removeSection = removeSection;
 
   // 测试用fields
-  $ctrl.fields = [{
-    key: 'test',
-    type: 'input2',
-    templateOptions: {
-      label: 'site ID/广告ID',
-      required: true
-    }
-  }, {
-    key: 'test2',
-    type: 'bindTag',
-    templateOptions: {
-      required: true
-    }
-  }];
-
+  $ctrl.fields = types[101];
+  
+  
   addSection();
   $ctrl.formList[0].model = {
     // test2: [ 

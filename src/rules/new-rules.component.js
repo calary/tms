@@ -21,8 +21,17 @@ function controller($state, rulesTypes, ruleTypes){
     {
       key: 'asdf',
       type: 'input2',
+      hideExpression: 'model.rulesType!=="网站"',
       templateOptions: {
         label: 'site ID（选填）',
+      }
+    },
+    {
+      key: 'asdf',
+      type: 'input2',
+      hideExpression: 'model.rulesType!=="广告"',
+      templateOptions: {
+        label: '广告ID（选填）',
       }
     },
     {
