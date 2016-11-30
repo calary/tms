@@ -1,6 +1,9 @@
-<div class="text-center" ng-show="$ctrl.loading">加载中</div>
-
-<div class="view-rules" ng-hide="$ctrl.loading">
+<div class="text-center" ng-show="$ctrl.loading==0">正在统计，请稍候......</div>
+<div class="text-center" ng-show="$ctrl.loading==2">
+  加载失败，{{$ctrl.loadingError}}。
+  <a ui-sref="rulesList">返回规格组列表&gt;&gt;</a>
+</div>
+<div class="view-rules" ng-show="$ctrl.loading==1">
   <div class="clearfix" ng-hide="$ctrl.store.hideEditArea">
     <button class="btn btn-success pull-right">导出规则组</button>
   </div>

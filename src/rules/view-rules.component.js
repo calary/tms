@@ -9,7 +9,8 @@ function controller($state, rulesService, store, $q){
   $ctrl.ruleTypes = [];
   $ctrl.store = store;
   $ctrl.$onDestroy = onDestroy;
-  $ctrl.loading = true;
+  $ctrl.loading = 0;
+  $ctrl.loadingError = '';
 
   // console.log('enter view-rules');
 
@@ -42,7 +43,7 @@ function controller($state, rulesService, store, $q){
     abortPromise = $q.defer(); 
     rulesService.getRule(rulesId, { timeout: abortPromise.promise}).then(function(data){
       // console.log('get rules succ', rulesId)
-      $ctrl.loading = false;
+      $ctrl.loading = 1;
       if(data) {
         $ctrl.data = data;
         store.viewRulesType = data.GroupStatus == '已加入任务' ? 1 : 4;
@@ -65,6 +66,9 @@ function controller($state, rulesService, store, $q){
           });
         });
       }
+    }, function(reason){
+      $ctrl.loading = 2;
+      $ctrl.loadingError = reason;
     });
   }
 

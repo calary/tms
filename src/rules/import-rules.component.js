@@ -7,6 +7,7 @@ function controller($uibModal, rulesService){
 
   $ctrl.errMsg = '';
   $ctrl.succMsg = '';
+  $ctrl.rulesId = '';
   $ctrl.uploading = false;
 
   function selectFile(file){
@@ -18,8 +19,11 @@ function controller($uibModal, rulesService){
     $ctrl.uploading = true;
     rulesService.importFile(file)
     .then(function(data){
+      // console.log(data.Data);
+      // console.log(data.Information);
       $ctrl.uploading = false;
       $ctrl.succMsg = data.Information;
+      $ctrl.rulesId = data.Data;
     }, function(reason){
       $ctrl.uploading = false;
       $ctrl.errMsg = reason;

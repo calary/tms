@@ -41,11 +41,14 @@ function controller($rootScope, $scope, $state, $transitions, rulesService, stor
 
   // init();
   function init(){
+    console.log('view rules list INIT');
     if($state.is('viewRules')) {
       var rulesId = $state.params.rulesId;
       var index = $ctrl.data.findIndex(function(rules){
+        console.log(rules.RuleGroupID);
         return rulesId == rules.RuleGroupID;
       });
+      console.log(index);
       $ctrl.showNav = index >= 0;
       $ctrl.currentId = rulesId;
     } else {

@@ -64,7 +64,7 @@ function ($httpProvider, dateServiceProvider) {
         var data = res.data;
         var status = data && data.Status;
         var information = data && data.Information;
-        var _data = data && data.Data || {};
+        var _data = data && data.Data || {}; 
         
         if(status == 1) {
 
@@ -82,6 +82,14 @@ function ($httpProvider, dateServiceProvider) {
               __data.count = _data.count;
             }
             _data = __data;
+          }
+
+          // 只返回一个字符串的情况
+          // 再包装一层，避免无法获得Information
+          if(angular.isString(_data)) {
+            _data = {
+              Data: _data
+            };
           }
 
           _data.Information = information;

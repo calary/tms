@@ -16,7 +16,7 @@
   </p>
   <p ng-show="$ctrl.succMsg">
     导入成功：{{ $ctrl.succMsg }}
-    <a>查看规则组详情&gt;&gt;</a>
+    <a  ui-sref="viewRules({rulesId: $ctrl.rulesId})">查看规则组详情&gt;&gt;</a>
   </p>
   <p ng-show="$ctrl.errMsg">
     导入失败：{{ $ctrl.errMsg }}
