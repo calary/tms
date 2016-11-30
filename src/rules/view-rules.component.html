@@ -1,4 +1,6 @@
-<div class="view-rules">
+<div class="text-center" ng-show="$ctrl.loading">加载中</div>
+
+<div class="view-rules" ng-hide="$ctrl.loading">
   <div class="clearfix" ng-hide="$ctrl.store.hideEditArea">
     <button class="btn btn-success pull-right">导出规则组</button>
   </div>

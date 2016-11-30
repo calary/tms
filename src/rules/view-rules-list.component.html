@@ -1,8 +1,7 @@
 <ui-select ng-model="$ctrl.currentId"
        theme="bootstrap"
-       reset-search-input="false"
        title="">
-  <ui-select-match allow-clear="false">{{$select.selected.title}}</ui-select-match>
+  <ui-select-match>{{$select.selected.title}}</ui-select-match>
   <ui-select-choices repeat="row.RuleGroupID as row in $ctrl.data | filter: $select.search">
     <div>{{ row.title }}</div>
   </ui-select-choices>

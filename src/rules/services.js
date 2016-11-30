@@ -9,13 +9,16 @@ function rulesService($q, $http, apiBaseUrl, rulesTypes){
   };
 
   // { Status: status }
-  function getRules(params){
-    params = params || {};
-    return $http.get(apiBaseUrl + '/task/api/findrulegroup', {params: params});
+  function getRules(params, config){
+    config = config || {};
+    config.params = params;
+    return $http.get(apiBaseUrl + '/task/api/findrulegroup', config);
   }
 
-  function getRule(id){
-    return $http.get(apiBaseUrl + '/task/api/TaskDetail/' + id);
+  function getRule(id, config){
+    config = config || {};
+    // console.log(config);
+    return $http.get(apiBaseUrl + '/task/api/TaskDetail/' + id, config);
 
     var data = {
       "GroupType":"网站",

@@ -32,7 +32,7 @@ module.exports = {
   factories: {
     $modalService: baseModalService,
     $datetimeModalService: datetimeModalService,  
-    dateService: dateService  
+    dateService: dateService
   },
   filters: {
     date2: date2Filter

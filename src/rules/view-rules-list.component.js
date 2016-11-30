@@ -6,7 +6,7 @@ function controller($rootScope, $scope, $state, $transitions, rulesService, stor
   $ctrl.showNav = false;
   $ctrl.currentId = '';
 
-  console.log('enter view rules list');
+  // console.log('enter view rules list');
   rulesService.getRules({ Status: 1 }).then(function(data){
     $ctrl.data = data || [];
     $ctrl.data.forEach(function(rules){
@@ -37,7 +37,7 @@ function controller($rootScope, $scope, $state, $transitions, rulesService, stor
     }
   })
 
-  console.log($scope);
+  // console.log($scope);
 
   // init();
   function init(){

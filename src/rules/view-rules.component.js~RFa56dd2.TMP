@@ -9,9 +9,8 @@ function controller($state, rulesService, store, $q){
   $ctrl.ruleTypes = [];
   $ctrl.store = store;
   $ctrl.$onDestroy = onDestroy;
-  $ctrl.loading = true;
 
-  // console.log('enter view-rules');
+  console.log('enter view-rules');
 
   // xx-table配置
   var baseTableConfig = {
@@ -39,10 +38,9 @@ function controller($state, rulesService, store, $q){
 
   getRule();
   function getRule(){
-    abortPromise = $q.defer(); 
+    var abortPromise = $q.defer(); 
     rulesService.getRule(rulesId, { timeout: abortPromise.promise}).then(function(data){
-      // console.log('get rules succ', rulesId)
-      $ctrl.loading = false;
+      console.log('get rules succ')
       if(data) {
         $ctrl.data = data;
         store.viewRulesType = data.GroupStatus == '已加入任务' ? 1 : 4;
@@ -69,7 +67,7 @@ function controller($state, rulesService, store, $q){
   }
 
   function onDestroy(){
-    // console.log('onDestroy');
+    console.log('onDestroy');
     if(abortPromise) {
       abortPromise.resolve();
     }
