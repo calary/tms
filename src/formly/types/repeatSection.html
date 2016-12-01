@@ -1,6 +1,6 @@
 <div>
   <!--loop through each element in model array-->
-  <div class="{{hideRepeat}}">
+  <div class="row">
     <div class="repeatsection" ng-repeat="element in model[options.key]" ng-init="fields = copyFields(to.fields)">
       <formly-form fields="fields"
                    model="element"

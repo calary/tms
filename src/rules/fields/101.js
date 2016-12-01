@@ -18,27 +18,54 @@ module.exports = [
           label: 'Title',
           required: true
         }
+      }, {
+        key: 'statistic',
+        type: 'checkbox2',
+        className: 'col-sm-6',
+        templateOptions: {
+          label: '统计型'
+        }
       }
     ]
   },
   {
-    key: 'statistic',
-    type: 'checkbox2',
-    templateOptions: {
-      label: '统计型'
-    }
-  },
-  {
+    key: 'statisticArray',
     type: 'repeatSection',
     templateOptions: {
       btnText:'Add another investment',
       fields: [
         {
-          key: 'time',
-          type: 'timeRange2',
-          templateOptions: {
-            label: '统计周期'
-          }
+          className: 'row',
+          fieldGroup: [
+            {
+              key: 'time',
+              type: 'timeRange2',
+              className: 'col-sm-6',
+              templateOptions: {
+                label: '统计周期'
+              }
+            }
+          ]
+        }, {
+          className: 'row',
+          fieldGroup: [
+            {
+              key: 'count',
+              type: 'input2',
+              className: 'col-sm-6',
+              templateOptions: {
+                label: '触发次数',
+                required: true
+              }
+            }, {
+              key: 'count2',
+              type: 'input2',
+              className: 'col-sm-6',
+              templateOptions: {
+                required: true
+              }
+            }
+          ]
         }, {
           key: 'test2',
           type: 'bindTag',
@@ -56,7 +83,6 @@ module.exports = [
       label: '统计周期'
     }
   },
-
   {
     key: 'test',
     type: 'input2',

@@ -12,7 +12,7 @@
     <formly-form model="form.model" fields="form.fields" form="form.form" options="form.options">
     </formly-form>
   </form>	
-  <div>{{ form.model | json}}</div>
+  <pre>{{ form.model | json}}</pre>
 </div>
 <div>
 	<button class="btn btn-default" ng-click="$ctrl.addSection()">

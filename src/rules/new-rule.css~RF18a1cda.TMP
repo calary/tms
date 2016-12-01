@@ -8,10 +8,8 @@
 }
 .new-rule .app-main-nav {
   left: 115px;
+  top: 48px;
   background-color: #455161;
-  border-top: 48px solid #f5f6f9;
+  min-height: calc(100% - 48px);
   /*min-height: 505px;*/
-}
-.new-rule .app-main-content {
-  padding-left: 0;
 }
