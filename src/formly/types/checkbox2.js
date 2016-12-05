@@ -1,5 +1,5 @@
 module.exports = {
   name: 'checkbox2',
   extends: 'checkbox',
-  wrapper: ['horizontalBootstrapWrapper', 'bootstrapHasError']
+  wrapper: ['validation', 'horizontalBootstrapWrapper', 'bootstrapHasError']
 };

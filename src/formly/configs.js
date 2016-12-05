@@ -16,9 +16,10 @@ exports.runFormlyConfig = ['formlyConfig', 'formlyValidationMessages',
   // 新增types: input2, select2,
   
   // new wrapper
-  formlyConfig.setWrapper(require('./wrapper/hasError'));
+  formlyConfig.setWrapper(require('./wrapper/validation'));
   formlyConfig.setWrapper(require('./wrapper/horizontalWrapper'));
   formlyConfig.setWrapper(require('./wrapper/horizontalLabel'));
+  // formlyConfig.setWrapper(require('./wrapper/hasError'));
   // new types
   formlyConfig.setType(require('./types/checkbox2'));
   formlyConfig.setType(require('./types/input2'));

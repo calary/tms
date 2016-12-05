@@ -4,22 +4,22 @@
 .formly-field .validation {
   position: absolute;
   color: red;
-  top: 32px;
+  top: 34px;
   font-size: 12px;
 }
 .form-horizontal ng-form {
   display: block;
 }
 .form-horizontal .validation {
-  left: 33.333333333%;
-  margin-left: 10px;
+/*  left: 33.333333333%;
+  margin-left: 10px;*/
 }
 .form-horizontal .no-label .validation {
   left: 0;
   margin-left: 0;
 }
 .form-horizontal .control-label {
-  padding-left: 0;
+  /*padding-left: 0;*/
   padding-right: 0;
   white-space: nowrap;
 }

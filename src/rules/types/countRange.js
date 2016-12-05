@@ -1,31 +1,13 @@
 module.exports = {
-  name: 'bindTag',
-  template: require('./bindTag.html'),
-  wrapper: ['validation', 'bootstrapLabel', 'bootstrapHasError'],
+  name: 'countRange',
+  template: require('./countRange.html'),
   defaultOptions: {
-    noFormControl: false,
-    ngModelAttrs: {
-      required: {
-        attribute: '',
-        bound: ''
-      }
-    },
-    validators: {
-      requiredhhhhhh: function(viewValue, modelValue) {
-        var value = modelValue || viewValue;
-        console.log(value);
-        return (value instanceof Array) && value.length > 1;
-      }
-    }
+    noFormControl: true,
+    wrapper: ['bootstrapLabel', 'bootstrapHasError']
   },
   controller: ['$scope', '$timeout', function($scope, $timeout) {
     $scope.copyItemOptions = copyItemOptions;
     $scope.selectTag = selectTag;
-
-    console.log($scope);
-    $scope.$watch('fc', function(){
-      console.log($scope.fc);
-    });
 
     // 独立表单
     $scope.hideModel = {}; // 存放search

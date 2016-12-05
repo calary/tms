@@ -1,5 +1,5 @@
 module.exports = {
   name: 'uiSelect2',
-  wrapper: ['horizontalBootstrapLabel', 'bootstrapHasError'],
+  wrapper: ['validation', 'horizontalBootstrapLabel', 'bootstrapHasError'],
   template: require('./uiSelect.html')
 };

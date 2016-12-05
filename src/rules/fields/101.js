@@ -1,33 +1,34 @@
+var constants = require('../../main/constants');
+var compareOptions = constants.compareOptions;
+
 module.exports = [
-  { 
-    className: 'row',
-    fieldGroup: [
-      {
-        key: 'url',
-        type: 'input2',
-        className: 'col-sm-6',
-        templateOptions: {
-          label: 'URL',
-          required: true
-        }
-      }, {
-        key: 'title',
-        type: 'input2',
-        className: 'col-sm-6',
-        templateOptions: {
-          label: 'Title',
-          required: true
-        }
-      }, {
-        key: 'statistic',
-        type: 'checkbox2',
-        className: 'col-sm-6',
-        templateOptions: {
-          label: '统计型'
-        }
-      }
-    ]
+  {
+    key: 'url',
+    type: 'input2',
+    templateOptions: {
+      label: 'URL',
+      required: true
+    }
+  }, {
+    key: 'title',
+    type: 'input2',
+    templateOptions: {
+      label: 'Title',
+      required: true
+    }
+  }, {
+    key: 'statistic',
+    type: 'checkbox2',
+    templateOptions: {
+      label: '统计型'
+    }
   },
+  // { 
+  //   className: 'row',
+  //   fieldGroup: [
+      
+  //   ]
+  // },
   {
     key: 'statisticArray',
     type: 'repeatSection',
@@ -35,34 +36,35 @@ module.exports = [
       btnText:'Add another investment',
       fields: [
         {
-          className: 'row',
-          fieldGroup: [
-            {
-              key: 'time',
-              type: 'timeRange2',
-              className: 'col-sm-6',
-              templateOptions: {
-                label: '统计周期'
-              }
-            }
-          ]
+          key: 'time',
+          type: 'timeRange2',
+          className: 'col-sm-6',
+          templateOptions: {
+            label: '统计周期'
+          }
         }, {
           className: 'row',
           fieldGroup: [
             {
               key: 'count',
-              type: 'input2',
+              type: 'select2',
               className: 'col-sm-6',
               templateOptions: {
                 label: '触发次数',
-                required: true
+                required: true,
+                valueProp: 'id',
+                labelProp: 'title',
+                options: compareOptions
               }
             }, {
               key: 'count2',
               type: 'input2',
               className: 'col-sm-6',
               templateOptions: {
-                required: true
+                required: true,
+                addonRight: {
+                  text: '次'
+                }
               }
             }
           ]

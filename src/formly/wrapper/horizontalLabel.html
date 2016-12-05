@@ -1,6 +1,6 @@
-<label for="{{::id}}" class="col-xs-4 control-label">
+<label for="{{::id}}" class="col-sm-4 control-label" ng-hide="to.hideLabel">
   {{to.label}}
 </label>
-<div class="col-xs-8">
+<div ng-class="{'col-sm-8': !to.hideLabel}">
   <formly-transclude></formly-transclude>
 </div>

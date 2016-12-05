@@ -1,0 +1,9 @@
+<formly-transclude></formly-transclude>
+<div class="validation"
+  ng-if="fc.$touched || form.$submitted"
+  ng-messages="fc.$error">
+  <div ng-message="{{::name}}" ng-repeat="(name, message) in ::options.validation.messages">
+    <span class="glyphicon glyphicon-exclamation-sign"></span>
+    {{message(fc.$viewValue, fc.$modelValue, this)}}
+  </div>
+</div>
