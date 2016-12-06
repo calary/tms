@@ -11,10 +11,13 @@ module.exports = {
       }
     },
     validators: {
-      requiredhhhhhh: function(viewValue, modelValue) {
-        var value = modelValue || viewValue;
-        console.log(value);
-        return (value instanceof Array) && value.length > 1;
+      requiredhhhh: {
+        expression: function(viewValue, modelValue) {
+          var value = modelValue || viewValue;
+          console.log('custom validators');
+          return (value instanceof Array) && value.length > 1;
+        },
+        message: '啊生大法上帝发誓地方' 
       }
     }
   },

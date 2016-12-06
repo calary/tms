@@ -123,9 +123,9 @@ exports.timeOptions = [
 exports.compareOptions = [
   { id: 1, title: '大于' },
   { id: 2, title: '小于等于' },
-  { id: 2, title: '小于' },
-  { id: 2, title: '小于等于' },
-  { id: 3, title: '等于' }
+  { id: 3, title: '小于' },
+  { id: 4, title: '小于等于' },
+  { id: 5, title: '等于' }
 ];
 // 行别选择
 exports.sexOptions = [

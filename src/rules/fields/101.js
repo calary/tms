@@ -98,5 +98,14 @@ module.exports = [
     templateOptions: {
       required: true
     }
+  }, {
+    key: 'checks',
+    type: 'multiCheckbox',
+    templateOptions: {
+      valueProp: 'id',
+      labelProp: 'title',
+      options: compareOptions,
+      require: true
+    }
   }
 ];
