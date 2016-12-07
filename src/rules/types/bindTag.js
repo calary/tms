@@ -1,41 +1,32 @@
+require('./bindTag.css');
+var tagIndex = 0;
 module.exports = {
   name: 'bindTag',
   template: require('./bindTag.html'),
-  wrapper: ['validation', 'bootstrapLabel', 'bootstrapHasError'],
   defaultOptions: {
-    noFormControl: false,
-    ngModelAttrs: {
-      required: {
-        attribute: '',
-        bound: ''
-      }
-    },
-    validators: {
-      requiredhhhh: {
-        expression: function(viewValue, modelValue) {
-          var value = modelValue || viewValue;
-          console.log('custom validators');
-          return (value instanceof Array) && value.length > 1;
-        },
-        message: '啊生大法上帝发誓地方' 
-      }
-    }
+    noFormControl: false
   },
   controller: ['$scope', '$timeout', function($scope, $timeout) {
-    $scope.copyItemOptions = copyItemOptions;
-    $scope.selectTag = selectTag;
+    var options;
+    var model = $scope.model;
+    var key = $scope.options.key;
+    var status = 0;
 
-    console.log($scope);
-    $scope.$watch('fc', function(){
-      console.log($scope.fc);
-    });
+    $scope.selectTag = selectTag;
+    $scope.removeTag = removeTag;
+    $scope.copyItemOptions = copyItemOptions;
 
     // 独立表单
+    var hideFieldKey = 'bindTagSearch-' + (tagIndex++);
+    var hideFieldCtrl = null;
+    var hasAdded = false;
     $scope.hideModel = {}; // 存放search
     $scope.hideFields = [{
-      key: 'search',
+      key: hideFieldKey,
       type: 'uiSelectAsync2',
       templateOptions: {
+        labelClass: 'col-sm-2',
+        valueClass: 'col-sm-10',
         // angular 1.4+ 只允许select使用ng-options
         // 所以必须显示设定替代的bs-options
         optionsAttr: 'bs-options',
@@ -45,32 +36,40 @@ module.exports = {
         labelProp: 'title',
         refresh: search,
         refreshDelay: 100
-      }
-    }];
-    var options;
-
-    var model = $scope.model;
-    var key = $scope.options.key;
-
-    $scope.$watch('hideModel.search', function(val){
-      if(!options) {
-        return;
-      }
-      options.forEach(function(option, index){
-        if(option.id === val) {
-          selectTag(option);
+      },
+      // 重点：为这个field添加require验证
+      // 在表单提交时显示提示信息
+      validators: {
+        required: function(viewValue, modelValue) {
+          console.log('custom validators');
+          if(viewValue) {
+            selectTag(viewValue);
+          }
+          $timeout(function(){
+            delete $scope.hideModel[hideFieldKey];
+          }, 100);
+          var value = model[key];
+          return (value instanceof Array) && value.length > 0;
         }
-      });
-    });
-
+      },
+      controller: ['$scope', function($scope){
+        var unwatch = $scope.$watch('fc', function(newVal){
+          if(newVal) {
+            hideFieldCtrl = newVal;
+            unwatch();
+          }
+        });
+      }]
+    }];
 
     function copyItemOptions(index) {
       return { 
         // model.key[0].weight
         key: key + '[' + index + '].weight', 
         type: 'input2',
-        className: 'no-label',
         templateOptions: {
+          labelClass: 'hide',
+          valueClass: '__',
           hideLabel: true,
           required: true
         } 
@@ -97,6 +96,15 @@ module.exports = {
         tagId: tag.id,
         tagTitle: tag.title
       });
+      $scope.hideModel[hideFieldKey] = undefined;
+    }
+
+
+    function removeTag($index){
+      model[key].splice($index, 1);
+      if(hideFieldCtrl) {
+        hideFieldCtrl.$validate();
+      }
     }
   }]
 };

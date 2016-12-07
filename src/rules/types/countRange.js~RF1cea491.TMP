@@ -13,7 +13,7 @@ module.exports = {
         className: 'col-sm-4',
         templateOptions: {
           labelClass: 'col-sm-6',
-          valueClass: 'col-sm-6 pr0',
+          valueClass: 'col-sm-6',
           label: '触发次数',
           // required: true,
           valueProp: 'id',
@@ -40,7 +40,7 @@ module.exports = {
         className: 'col-sm-1 nowrap',
         templateOptions: {
           labelClass: 'hide',
-          valueClass: 'ml15',
+          valueClass: 'ml0',
           label: '且'
         }
       },
@@ -55,10 +55,7 @@ module.exports = {
           valueProp: 'id',
           labelProp: 'title',
           options: compareOptions
-        },
-        expressionProperties: {
-          'templateOptions.disabled': '!model.' + key + '.w3'
-        }
+        } 
       },
       {
         key: key + '.w5', 
@@ -66,14 +63,11 @@ module.exports = {
         className: 'col-sm-2',
         templateOptions: {
           labelClass: 'hide',
-          valueClass: '__',
+          valueClass: 'col-sm-12',
           // required: true,
           addonRight: {
             text: '次'
           }
-        },
-        expressionProperties: {
-          'templateOptions.disabled': '!model.' + key + '.w3'
         }
       }
     ];

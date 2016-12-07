@@ -1,4 +1,4 @@
-<div class="col-sm-4" ng-hide="to.hideLabel"></div>
-<div ng-class="{'col-sm-8': !to.hideLabel}">
+<div ng-class="to.labelClass ? to.labelClass : 'col-sm-4'"></div>
+<div ng-class="to.valueClass ? to.valueClass : 'col-sm-8'">
   <formly-transclude></formly-transclude>
 </div>

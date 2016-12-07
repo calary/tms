@@ -15,8 +15,6 @@ module.exports = [
     key: 'title',
     type: 'input2',
     templateOptions: {
-      labelClass: 'col-sm-2',
-      valueClass: 'col-sm-10',
       label: 'Title',
       required: true
     }
@@ -24,8 +22,6 @@ module.exports = [
     key: 'statistic',
     type: 'checkbox2',
     templateOptions: {
-      labelClass: 'col-sm-2',
-      valueClass: 'col-sm-10',
       label: '统计型'
     }
   },
@@ -67,9 +63,15 @@ module.exports = [
     key: 'time',
     type: 'timeRange2',
     templateOptions: {
-      labelClass: 'col-sm-2',
-      valueClass: 'col-sm-10',
       label: '统计周期'
+    }
+  },
+  {
+    key: 'test',
+    type: 'input2',
+    templateOptions: {
+      label: 'site ID/广告ID',
+      required: true
     }
   }, {
     key: 'test2',
@@ -78,6 +80,16 @@ module.exports = [
       required: true
     }
   }, {
+    key: 'checks',
+    type: 'multiCheckbox',
+    templateOptions: {
+      valueProp: 'id',
+      labelProp: 'title',
+      options: compareOptions,
+      require: true
+    }
+  },
+  {
     key: 'count22',
     type: 'countRange',
   }

@@ -71,6 +71,14 @@ module.exports = [
       valueClass: 'col-sm-10',
       label: '统计周期'
     }
+  },
+  {
+    key: 'test',
+    type: 'input2',
+    templateOptions: {
+      label: 'site ID/广告ID',
+      required: true
+    }
   }, {
     key: 'test2',
     type: 'bindTag',
@@ -78,6 +86,16 @@ module.exports = [
       required: true
     }
   }, {
+    key: 'checks',
+    type: 'multiCheckbox',
+    templateOptions: {
+      valueProp: 'id',
+      labelProp: 'title',
+      options: compareOptions,
+      require: true
+    }
+  },
+  {
     key: 'count22',
     type: 'countRange',
   }
