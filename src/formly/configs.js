@@ -24,6 +24,8 @@ exports.runFormlyConfig = ['formlyConfig', 'formlyValidationMessages',
   formlyConfig.setType(require('./types/checkbox2'));
   formlyConfig.setType(require('./types/input2'));
   formlyConfig.setType(require('./types/plainTimeRange'));
+  formlyConfig.setType(require('./types/time'));
+  formlyConfig.setType(require('./types/time2'));
   formlyConfig.setType(require('./types/timeRange'));
   formlyConfig.setType(require('./types/timeRange2'));
   formlyConfig.setType(require('./types/select2'));

@@ -9,6 +9,7 @@ var importRulesModalComponent = require('./import-rules-modal.component');
 var states = require('./states');
 var configs = require('./configs');
 var services = require('./services');
+var newRulesOptionsService = require('./newRulesOptions.service');
 
 module.exports = {
   components: {
@@ -31,7 +32,8 @@ module.exports = {
     states.importRuleState,
   ],
   factories: {
-    rulesService: services.rulesService
+    rulesService: services.rulesService,
+    newRulesOptionsService: newRulesOptionsService
   },
   runBlocks: [ configs.runFormlyConfig ]
 };

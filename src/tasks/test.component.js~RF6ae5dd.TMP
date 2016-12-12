@@ -1,5 +1,5 @@
-controller.$inject = ['tasksService', '$timeout', '$q', 'fieldOptionsService'];
-function controller(tasksService, $timeout, $q, fieldOptionsService){
+controller.$inject = ['tasksService', '$timeout', '$q'];
+function controller(tasksService, $timeout, $q){
   var $ctrl = this;
  
   this.day = new Date();
@@ -30,16 +30,7 @@ function controller(tasksService, $timeout, $q, fieldOptionsService){
     {
       className: '',
       fieldGroup: inputs
-    },
-    fieldOptionsService.getCompare({
-      model: $ctrl.model,
-      key: ['a', 'b', 'c', 'd', 'e']
-    }),
-    fieldOptionsService.getTimeRange({
-      label: 'time-range',
-      required: true,
-      key: ['minDate', 'maxDate']
-    })
+    }
   ];
 
   $ctrl.addInput = function(){
@@ -57,15 +48,13 @@ function controller(tasksService, $timeout, $q, fieldOptionsService){
     if(index >= inputs.length) {
       return;
     }
-    $ctrl.model.input.splice(index, 1);
-    inputs.pop();
-
-    // inputs.splice(index, 1);
-    // inputs.forEach(function(input, i){
-    //   inputs[i] = 
-    // });
-
-    // console.log(inputs);
+    console.log($ctrl.options);
+    // $ctrl.model.input.splice(index, 1);
+    inputs.splice(index, 1);
+    inputs.forEach(function(input, i){
+      input.key = 'input[' + i + ']';
+      input.templateOptions.label = 'input' + i;
+    });
   };
 }
 

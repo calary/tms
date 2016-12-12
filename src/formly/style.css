@@ -5,18 +5,26 @@
   padding-right: 0;
   white-space: nowrap;
 }
-.formly-field .ml0 {
-  margin-left: 0;
+
+@media (min-width: 768px) {
+  .formly-field .ml-md-0 {
+    margin-left: 0;
+  }
+  .formly-field .mr-md-15 {
+    margin-right: 15px;
+  }
+  .formly-field .ml-md-15 {
+    margin-left: 15px;
+  }
+  .formly-field .pr-md-0 {
+    padding-right: 0;
+  }  
 }
-.formly-field .mr15 {
-  margin-right: 15px;
-}
+
 .formly-field .ml15 {
   margin-left: 15px;
 }
-.formly-field .pr0 {
-  padding-right: 0;
-}
+
 .formly-field .validation {
   position: absolute;
   color: red;

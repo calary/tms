@@ -3,6 +3,7 @@ var constants = require('./constants');
 var states = require('./states');
 var configs = require('./configs');
 var filters = require('./filters');
+var fieldOptionsService = require('./fieldOptions.service');
 
 require('./main.css');
 
@@ -20,6 +21,9 @@ module.exports = {
 		pointsOptions: constants.pointsOptions,
 		couponOptions: constants.couponOptions
 	},
+  factories: {
+    fieldOptionsService: fieldOptionsService
+  },
   components: {
     app: appComponent,
   },

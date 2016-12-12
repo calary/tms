@@ -1,22 +1,21 @@
 require('./new-rule.css');
 
-var types = {
-  101: require('./fields/101.js')
-};
-
-
-controller.$inject = ['ruleTypes', '$state'];
-function controller(ruleTypes){
+controller.$inject = ['ruleTypes', '$state', 'newRulesOptionsService'];
+function controller(ruleTypes, $state, newRulesOptionsService){
   var $ctrl = this;
   $ctrl.ruleTypes = ruleTypes;
   // formly
+  $ctrl.model = {};
   $ctrl.fields = [];
   $ctrl.formList = [];
   $ctrl.addSection = addSection;
   $ctrl.removeSection = removeSection;
 
   // 测试用fields
-  $ctrl.fields = types[101];
+  $ctrl.fields = newRulesOptionsService.get({
+    id: 101,
+    model: $ctrl.model
+  });
   
   
   addSection();
