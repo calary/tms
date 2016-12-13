@@ -1,7 +1,7 @@
 var types = {
   101: require('./fields/101.js')
 };
-console.log(types[101]);
+
 module.exports = ['compareOptions', 'fieldOptionsService',
   function(compareOptions, fieldOptionsService){
 

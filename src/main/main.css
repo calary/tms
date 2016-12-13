@@ -50,7 +50,7 @@ ui-view, ui-view > * {
   min-height: 100%;
   padding-left: 0;
   padding-right: 0;
-  background-color: #2b3746;
+  background-color: #1ba332;
   /*text-align: right;*/
 }
 .app-main-content {
@@ -62,7 +62,8 @@ ui-view, ui-view > * {
 .app-main-nav .page-title {
   margin-left: 0;
   padding-left: 15px;
-  color: #21ab38;
+  color: #fff;
+  opacity: 0.7;
   /*border-bottom-color: #000;*/
 }
 .app-main-nav .nav {
@@ -77,12 +78,12 @@ ui-view, ui-view > * {
 .app-main-nav .nav-pills > li > a:hover {
   color: #fff;
   opacity: 1;
-  background-color: #1e2937;
+  background-color: #1e8b30;
 }
 .app-main-nav .nav-pills > li.active > a {
   color: #fff;
   opacity: 1;
-  background-color: #1e2937;
+  background-color: #1e8b30;
   font-weight: bold;
 }
 .app-ui-view {

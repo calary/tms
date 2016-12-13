@@ -32,7 +32,7 @@ function controller($modalService, $state, tasksService, $modalService){
         controller: ['$scope', 'rulesService', function($scope, rulesService){
           rulesService.getRules({ Status: 4 })
           .then(function(data){
-            console.log(data);
+            // console.log(data);
             // RuleGroupType
             // 1.如选择的标签规则组类型是呼叫中心或社会化媒体
             // 则隐藏输入site ID/广告ID一项。
@@ -134,7 +134,7 @@ function controller($modalService, $state, tasksService, $modalService){
       StartDate:   $ctrl.model.time.min,
       EndDate:     $ctrl.model.time.max
     };
-    console.log(data);
+    // console.log(data);
     if(isNewTask) {
       return tasksService.createTask(data).then(function(data){
         $modalService.alert({
