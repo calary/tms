@@ -7,6 +7,7 @@ var globalModule = require('./global');
 var mainModule = require('./main');
 var tasksModule = require('./tasks');
 var rulesModule = require('./rules');
+var brandModule = require('./brand');
 
 // 模块模板
 // key为注册名，value为注册时所需的配置对象
@@ -22,7 +23,13 @@ var BLANK_MODULE = {
     runBlocks: []
 };
 
-var subModules = [formlyModule, globalModule, mainModule, tasksModule, rulesModule]
+var subModules = [
+  formlyModule, 
+  globalModule, 
+  mainModule, 
+  tasksModule, 
+  rulesModule,
+  brandModule]
 .map(function(module){
   // 保证每个模块都包含模块模板里的key
   return Object.assign({}, BLANK_MODULE, module);
