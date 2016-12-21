@@ -7,9 +7,11 @@ var date2Filter = require('./date2.filter');
 var inputFileDirective = require('./input-file.directive');
 var xxClickDirective = require('./xx-click.directive');
 var xxBindHtmlDirective = require('./xx-bind-html.directive');
+var xxEditableDirective = require('./xx-editable.directive');
 var xxTableDirective = require('./xx-table.directive');
 var datetimePickerDirective = require('./datetime-picker.directive');
 var datetimeRangeDirective = require('./datetime-range.directive');
+var utilsService = require('./utils.service');
 var configs = require('./configs');
 
 module.exports = {
@@ -24,6 +26,7 @@ module.exports = {
     // 绑定的方法返回promise时
     //设置disabled，禁止触发
     xxClick: xxClickDirective,
+    xxEditable: xxEditableDirective,
     // ng-bind-html的进化版
     // 支持绑定包含{{}}，指令的html
     xxBindHtml: xxBindHtmlDirective,
@@ -32,7 +35,8 @@ module.exports = {
   factories: {
     $modalService: baseModalService,
     $datetimeModalService: datetimeModalService,  
-    dateService: dateService
+    dateService: dateService,
+    utils: utilsService
   },
   filters: {
     date2: date2Filter

@@ -1,12 +1,17 @@
 <div class="brand-list">
-  <!-- 筛选 -->
-<!--   <div class="well well-default">
-    <form class="form-horizontal" name="$ctrl.form" novalidate>
+  <div class="well well-default">
+    <form class="form-horizontal" name="$ctrl.form" novalidate style="max-width:600px;">
       <formly-form model="$ctrl.model" fields="$ctrl.fields" form="$ctrl.form" options="$ctrl.options">
       </formly-form>
-      <button class="btn btn-success" ng-click="$ctrl.update()">筛选</button>
-      <button class="btn btn-default" ng-click="$ctrl.options.resetModel()">重置</button>  
+      <div class="row">
+        <div class="col-sm-offset-4 col-sm-8">
+          <button class="btn btn-success" ng-click="$ctrl.create()">保存</button>
+          <button class="btn btn-default" ng-click="$ctrl.options.resetModel()">重置</button> 
+        </div>
+      </div>
+      <div style="margin-top:15px;">注：保存后不可删除，只可对品牌名称进行修改。修改后所有结果以修改后为准。</div>
     </form>
-  </div> -->
+  </div>
   <xx-table config="$ctrl.tableConfig" on-init="$ctrl.onTableInit(update)"></xx-table>
+</div>
 

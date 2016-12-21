@@ -1,0 +1,11 @@
+<div class="xx-editable">
+  <div ng-show="!isEditing">
+    <span>{{ text }}</span>
+    <span class="glyphicon glyphicon-edit" ng-click="edit()"></span>
+  </div>
+  <div class="xx-editable-row" ng-show="isEditing">
+    <input type="text" ng-model="editText">
+    <span class="glyphicon glyphicon-ok" ng-click="ok()"></span>
+    <span class="glyphicon glyphicon-remove" ng-click="cancel()"></span>
+  </div>
+</div>

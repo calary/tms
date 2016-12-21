@@ -6,11 +6,6 @@ function controller($modalService, utils, brandService){
   $ctrl.data = [];
   $ctrl.update = null; // 等xx-table初始化后填充
   $ctrl.create = create;
-  $ctrl.edit = edit;
-  $ctrl.test = 'hello~~~';
-  $ctrl.testSubmit = function(text){
-    alert(text);
-  };
 
   // formly配置 
   $ctrl.model = {};
@@ -47,7 +42,7 @@ function controller($modalService, utils, brandService){
         data: '{{ row.Primaryid }}'
       }, {
         head: '品牌/平台名称',
-        data: '<xx-editable text="row.name"></xx-editable>'
+        data: '{{ row.name }}'
       }, {
         head: '创建时间',
         data: '{{ row.createtime | date2 }}'
@@ -56,7 +51,7 @@ function controller($modalService, utils, brandService){
         data: '{{ row.updatetime | date2 }}'
       }, {
         head: '启用/停用',
-        data: '<switch ng-model="row.isuse" class="green"></switch><div class="cover" xx-click="methods.toggle(row)"></div>'
+        data: '<switch ng-model="row.isuse" class="green"></switch><div class="cover" xx-click="methods.toggle(row)">遮挡</div>'
       }
     ],
     methods: {
@@ -81,27 +76,18 @@ function controller($modalService, utils, brandService){
     brandService.editBrand({
       name: $ctrl.model.name
     }).then(function(data){
-      $ctrl.tableConfig.data.push(data);
+      console.log(data);
       $ctrl.options.resetModel();
       $modalService.alert({
         content: '创建成功', 
         hideCancel: true
-      });
+      }).then($ctrl.update);
     }, function(reason){
-      if(reason && reason.status == -1) {
-        reason = '您已离线';
-      }
-      $modalService.alert({content: reason});
+      console.log(reason);
     });
   }
-  function edit(id){
-    return function(name){
-      brandService.editBrand({
-        method: 1,
-        Primaryid: id,
-        name: name
-      });
-    };
+  function edit(){
+
   }
   function toggle(brand){
     if(!brand || !brand.Primaryid) {
@@ -111,16 +97,8 @@ function controller($modalService, utils, brandService){
       method: 1,
       Primaryid: brand.Primaryid,
       isuse: brand.isuse ? 0 : 1
-    }).then(function(data){
-      var i;
-      for(i in data) {
-        brand[i] = data[i];
-      }
-    });
+    })
   }
-
-
-
 }
 
 module.exports = {

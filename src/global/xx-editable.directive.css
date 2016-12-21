@@ -1,0 +1,17 @@
+.xx-editable-row {
+  display: table;
+}
+.xx-editable-row > * {
+  display: table-cell;
+}
+.xx-editable-row > span {
+  cursor: pointer;
+  width: 16px;
+}
+
+.xx-editable input {
+  display: inline;
+  border: 0 none;
+  background-color: transparent;
+  width: 100%;
+}

@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="xx-table-tip" ng-show="status!==3||data.length==0">
+      <tr class="xx-table-tip" ng-show="status!==3||config.data.length==0">
         <td ng-show="status==1" colspan="{{columns.length}}" class="text-center">请求中…</td>
         <td ng-show="status==2"  colspan="{{columns.length}}" class="text-center">
           请求失败，{{ error }}
@@ -19,9 +19,9 @@
             重新请求
           </button>
         </td>
-        <td ng-show="status==3&&data.length==0" colspan="{{columns.length}}" class="text-center">空</td>
+        <td ng-show="status==3&&config.data.length==0" colspan="{{columns.length}}" class="text-center">空</td>
       </tr>
-      <tr ng-repeat="row in data track by $index">
+      <tr ng-repeat="row in config.data track by $index">
         <td 
           ng-repeat="column in columns"
           xx-bind-html="column.data"

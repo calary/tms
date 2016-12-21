@@ -37,7 +37,7 @@ function directive($timeout, $q){
       function init(){
         var config = $scope.config || {};
         // console.log(config);
-        $scope.data = config.data || [];
+        // $scope.data = config.data || [];
         $scope.columns = config.columns || [];
         $scope.methods = config.methods || {};
         $scope.update = update;
@@ -50,7 +50,6 @@ function directive($timeout, $q){
         }
       }
 
-
       function update(){
         console.log('update called')
         var cb = $scope.config.getData;
@@ -62,7 +61,7 @@ function directive($timeout, $q){
 
         if(angular.isArray(res)) {
           $scope.status = 3;
-          $scope.data = res;
+          $scope.config.data = res;
         } else {
           $scope.status = 1;
           $q.all([res, timeout()]).then(function(data){
@@ -72,7 +71,7 @@ function directive($timeout, $q){
               return;
             }
             $scope.status = 3;
-            $scope.data = data[0];
+            $scope.config.data = data[0];
           }, function(error){
             console.log(error, curReqCount, reqCount);
             if(curReqCount !== reqCount) {
